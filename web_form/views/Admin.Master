@@ -1,0 +1,252 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="vclass_clone.web_form.views.Admin" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="../../static/assets/vendors/typicons/typicons.css" />
+    <link rel="stylesheet" href="../../static/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../../static/assets/css/style.css">
+    <link rel="shortcut icon" href="../../static/assets/images/favicon.ico" />
+    <link href="../../static/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../static/assets/css/admin.css" rel="stylesheet" />
+
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="adminMastet" runat="server">
+
+        <div class="container-scroller">
+            <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+                <div class="navbar-brand-wrapper d-flex justify-content-center">
+                    <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+                        <a class="navbar-brand brand-logo" href="index.html">
+                            <img src="../../../assets/images/logo.svg" alt="logo" /></a>
+                        <a class="navbar-brand brand-logo-mini" href="index.html">
+                            <img src="../../../assets/images/logo-mini.svg" alt="logo" /></a>
+                        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                            <span class="typcn typcn-th-menu"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                    <ul class="navbar-nav me-lg-2">
+                        <li class="nav-item nav-profile dropdown">
+                            <a class="nav-link" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+                                <img src="../../../assets/images/faces/face5.jpg" alt="profile" />
+                                <span class="nav-profile-name">Eugenia Mullins</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                                <a class="dropdown-item">
+                                    <i class="typcn typcn-cog-outline text-primary"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item">
+                                    <i class="typcn typcn-eject text-primary"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item nav-date dropdown">
+                            <a class="nav-link d-flex justify-content-center align-items-center" href="javascript:;">
+                                <h6 class="date mb-0">Today : Mar 23</h6>
+                                <i class="typcn typcn-calendar"></i>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                        <span class="typcn typcn-th-menu"></span>
+                    </button>
+                </div>
+            </nav>
+            <!-- partial -->
+            <nav class="navbar-breadcrumb col-xl-12 col-12 d-flex flex-row p-0">
+                <div class="navbar-links-wrapper d-flex align-items-stretch">
+                    <div class="nav-link">
+                        <a href="javascript:;"><i class="typcn typcn-calendar-outline"></i></a>
+                    </div>
+                    <div class="nav-link">
+                        <a href="javascript:;"><i class="typcn typcn-mail"></i></a>
+                    </div>
+                    <div class="nav-link">
+                        <a href="javascript:;"><i class="typcn typcn-folder"></i></a>
+                    </div>
+                    <div class="nav-link">
+                        <a href="javascript:;"><i class="typcn typcn-document-text"></i></a>
+                    </div>
+                </div>
+                <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                    <ul class="navbar-nav me-lg-2">
+                        <li class="nav-item ms-0">
+                            <h4 class="mb-0">Dashboard</h4>
+                        </li>
+                        <li class="nav-item">
+                            <div class="d-flex align-items-baseline">
+                                <p class="mb-0">Home</p>
+                                <i class="typcn typcn-chevron-right"></i>
+                                <p class="mb-0">Main Dahboard</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item nav-search d-none d-md-block me-0">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search..." aria-label="search" aria-describedby="search">
+                                <div class="input-group-prepend d-flex">
+                                    <span class="input-group-text" id="search">
+                                        <i class="typcn typcn-zoom"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container-fluid page-body-wrapper">
+                <!-- partial:partials/_sidebar.html -->
+                <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="typcn typcn-device-desktop menu-icon"></i>
+                                <span class="menu-title">Dashboard</span>
+                                <div class="badge badge-danger">new</div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#u-profile" aria-expanded="false" aria-controls="u-profile">
+                                <i class="typcn typcn-document-text menu-icon"></i>
+                                <span class="menu-title">Profiles</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="u-profile">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"><a class="nav-link" href='<%=Page.GetRouteUrl("AdminList", null) %>'>Admin</a></li>
+                                    <li class="nav-item"><a class="nav-link" href='<%=Page.GetRouteUrl("FacilitatorList", null) %>'>Facilators</a></li>
+                                    <li class="nav-item"><a class="nav-link" href='<%=Page.GetRouteUrl("StudentList", null) %>'>Student</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+                                <i class="typcn typcn-film menu-icon"></i>
+                                <span class="menu-title">Management</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="form-elements">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"><a class="nav-link" href='<%=Page.GetRouteUrl("CourseList", null) %>'>Course List</a></li>
+                                     <li class="nav-item"><a class="nav-link"href='<%=Page.GetRouteUrl("CourseAssignList", null) %>'>Course Assignment</a></li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#tools" aria-expanded="false" aria-controls="tools">
+                                <i class="typcn typcn-chart-pie-outline menu-icon"></i>
+                                <span class="menu-title">tools</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="tools">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"><a class="nav-link" href="#">Department</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">Student Group</a></li>
+                                     <li class="nav-item"><a class="nav-link" href="#"> another</a></li>
+
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+                                <i class="typcn typcn-th-small-outline menu-icon"></i>
+                                <span class="menu-title">Tables</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="tables">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"><a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+                                <i class="typcn typcn-compass menu-icon"></i>
+                                <span class="menu-title">Icons</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="icons">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"><a class="nav-link" href="pages/icons/font-awesome.html">Font Awesome</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                       
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../../docs/documentation.html">
+                                <i class="typcn typcn-mortar-board menu-icon"></i>
+                                <span class="menu-title">Documentation</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- partial -->
+                <div class="main-panel">
+
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+
+
+
+
+                    <!-- main-panel ends -->
+                    <footer class="footer">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024 <a href="https://www.bootstrapdash.com/" class="text-muted" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
+                                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-muted">Hand-crafted & made with <i class="typcn typcn-heart-full-outline text-danger"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+                <!-- page-body-wrapper ends -->
+
+
+            </div>
+
+
+
+
+            <script src='<%= ResolveClientUrl("~/static/assets/vendors/js/vendor.bundle.base.js") %>'></script>
+            <!-- Plugin js for this page-->
+            <script src='<%= ResolveClientUrl("~/static/assets/vendors/chart.js/chart.umd.js") %>'></script>
+            <script src='<%= ResolveClientUrl("~/static/assets/js/jquery.cookie.js") %>'></script>
+            <!-- End plugin js for this page-->
+            <!-- inject:js -->
+            <script src='<%= ResolveClientUrl("~/static/assets/js/off-canvas.js") %>'></script>
+            <script src='<%= ResolveClientUrl("~/static/assets/js/hoverable-collapse.js") %>'></script>
+            <script src='<%= ResolveClientUrl("~/static/assets/js/template.js") %>'></script>
+            <script src='<%= ResolveClientUrl("~/static/assets/js/settings.js") %>'></script>
+            <script src='<%= ResolveClientUrl("~/static/assets/js/todolist.js") %>'></script>
+
+            <script src='<%= ResolveClientUrl("~/static/bootstrap/js/bootstrap.js") %>'></script>
+            </div>
+    </form>
+
+
+</body>
+</html>
