@@ -59,7 +59,7 @@
                                 <div class="col-md-6">
                                     <asp:Button  ID="btnAddAdmin" runat="server" Text="Save" CssClass="btn btn-primary"  Width="140px" OnClick="btnAddAdmin_Click"  />
                                 </div>
-                                <div class="col-md-8 text-right">
+                                <div class="col-md-6 text-right">
                                     <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-secondary" Width="140px" OnClick="btnClear_Click"  />
                                 </div>
                             </div>

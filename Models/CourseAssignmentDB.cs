@@ -20,8 +20,12 @@ namespace vclass_clone.Models
         public Guid FacilitatorId { get; set; }
         public virtual FacilitatorDB Facilitator { get; set; }
 
+        [Required(ErrorMessage = "Start Date is required.")]
+        public DateTime StartDate { get; set; }
 
-        
+        public DateTime? EndDate { get; set; }
+
+
         public CourseAssignmentDB()
         {
             Id = Guid.NewGuid();

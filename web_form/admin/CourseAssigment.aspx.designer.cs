@@ -11,7 +11,7 @@ namespace vclass_clone.web_form.admin
 {
 
 
-    public partial class group
+    public partial class CourseAssigment
     {
 
         /// <summary>
@@ -24,66 +24,84 @@ namespace vclass_clone.web_form.admin
         protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
-        /// txtGroupName control.
+        /// DropDownListCourses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGroupName;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListCourses;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// sqlCourse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlCourse;
 
         /// <summary>
-        /// sqlDepartment control.
+        /// DropDownListFacilitators control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlDepartment;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListFacilitators;
 
         /// <summary>
-        /// txtGroupDescription control.
+        /// sqlFacilitator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGroupDescription;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlFacilitator;
 
         /// <summary>
-        /// btnAddGroup control.
+        /// txtStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddGroup;
+        protected global::System.Web.UI.WebControls.TextBox txtStartDate;
 
         /// <summary>
-        /// groupList control.
+        /// txtEndDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView groupList;
+        protected global::System.Web.UI.WebControls.TextBox txtEndDate;
 
         /// <summary>
-        /// SqlGroup control.
+        /// btnAddAssignment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlGroup;
+        protected global::System.Web.UI.WebControls.Button btnAddAssignment;
+
+        /// <summary>
+        /// assignmentList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView assignmentList;
+
+        /// <summary>
+        /// SqlAssignment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlAssignment;
     }
 }

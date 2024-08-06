@@ -23,11 +23,11 @@ namespace vclass_clone
         [Required(ErrorMessage = "Status is required.")]
         [StringLength(10, ErrorMessage = "Status cannot be longer than 10 characters.")]
         public string Status { get; set; }
-        public object Admin { get; internal set; }
 
         public UserDB()
         {
             Id = Guid.NewGuid();
         }
     }
+
 }

@@ -11,7 +11,7 @@ namespace vclass_clone.web_form.admin
 {
 
 
-    public partial class facilitatorList
+    public partial class studentList
     {
 
         /// <summary>
@@ -24,21 +24,21 @@ namespace vclass_clone.web_form.admin
         protected global::System.Web.UI.WebControls.Button addBtn;
 
         /// <summary>
-        /// adminList control.
+        /// StuList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView adminList;
+        protected global::System.Web.UI.WebControls.GridView StuList;
 
         /// <summary>
-        /// SqlFacilitator control.
+        /// SqlStudent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlFacilitator;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlStudent;
     }
 }

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-
 
 namespace vclass_clone.Models
 {
@@ -25,16 +23,18 @@ namespace vclass_clone.Models
         public string Phone { get; set; }
 
         [Required(ErrorMessage = "Address is required.")]
-        [StringLength(255, ErrorMessage = "Address cannot be longer than 50 characters.")]
+        [StringLength(255, ErrorMessage = "Address cannot be longer than 255 characters.")]
         public string Address { get; set; }
 
-
-     
         [Required]
         public Guid UserId { get; set; }
         public virtual UserDB User { get; set; }
-        public virtual ICollection<CourseAssignmentDB> CourseAssignments { get; set; }
+
+        [Required]
+        public Guid DepartmentId { get; set; }
         public virtual DepartmentDB Department { get; set; }
+
+        public virtual ICollection<CourseAssignmentDB> CourseAssignments { get; set; }
 
         public FacilitatorDB()
         {
@@ -42,4 +42,5 @@ namespace vclass_clone.Models
             CourseAssignments = new List<CourseAssignmentDB>();
         }
     }
+
 }

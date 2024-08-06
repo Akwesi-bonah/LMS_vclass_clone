@@ -7,13 +7,13 @@ namespace vclass_clone.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class EnableCascadeDelete : IMigrationMetadata
+    public sealed partial class new_database : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(EnableCascadeDelete));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(new_database));
         
         string IMigrationMetadata.Id
         {
-            get { return "202408032130094_EnableCascadeDelete"; }
+            get { return "202408041622486_new_database"; }
         }
         
         string IMigrationMetadata.Source

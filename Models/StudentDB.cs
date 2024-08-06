@@ -25,10 +25,6 @@ namespace vclass_clone.Models
         [StringLength(10, ErrorMessage = "Gender cannot be longer than 10 characters.")]
         public string Gender { get; set; }
 
-        [Required(ErrorMessage = "Email address is required.")]
-        [EmailAddress(ErrorMessage = "Invalid email address format.")]
-        public string Email { get; set; }
-
         [StringLength(4, ErrorMessage = "Level cannot be longer than 4 characters.")]
         public string Level { get; set; }
 
@@ -36,13 +32,14 @@ namespace vclass_clone.Models
         public Guid UserId { get; set; }
         public virtual UserDB User { get; set; }
 
-        public virtual ICollection<GroupDB> Group { get; set; }
-
+        public Guid? GroupId { get; set; }
+        public virtual GroupDB Group { get; set; }
 
         public StudentDB()
         {
             Id = Guid.NewGuid();
         }
-
     }
+
+
 }

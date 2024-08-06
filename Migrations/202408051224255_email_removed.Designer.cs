@@ -7,13 +7,13 @@ namespace vclass_clone.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class model_update : IMigrationMetadata
+    public sealed partial class email_removed : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(model_update));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(email_removed));
         
         string IMigrationMetadata.Id
         {
-            get { return "202408041215139_model_update"; }
+            get { return "202408051224255_email_removed"; }
         }
         
         string IMigrationMetadata.Source

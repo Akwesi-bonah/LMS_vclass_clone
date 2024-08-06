@@ -7,13 +7,13 @@ namespace vclass_clone.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class model_new_changes : IMigrationMetadata
+    public sealed partial class department_db_update : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(model_new_changes));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(department_db_update));
         
         string IMigrationMetadata.Id
         {
-            get { return "202408041258557_model_new_changes"; }
+            get { return "202408041635416_department_db_update"; }
         }
         
         string IMigrationMetadata.Source

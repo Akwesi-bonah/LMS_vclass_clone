@@ -18,5 +18,13 @@ namespace vclass_clone.Models
         [Required(ErrorMessage = "Description is required.")]
         [StringLength(255, ErrorMessage = "Description  cannot be longer than 255 characters.")]
         public string Description { get; set; }
+
+
+        public DepartmentDB()
+        {
+            Id = Guid.NewGuid();
+        }
     }
+
+   
 }

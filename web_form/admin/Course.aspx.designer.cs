@@ -11,7 +11,7 @@ namespace vclass_clone.web_form.admin
 {
 
 
-    public partial class group
+    public partial class Course
     {
 
         /// <summary>
@@ -24,66 +24,75 @@ namespace vclass_clone.web_form.admin
         protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
-        /// txtGroupName control.
+        /// txtCourseName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGroupName;
+        protected global::System.Web.UI.WebControls.TextBox txtCourseName;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// txtCourseCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.TextBox txtCourseCode;
 
         /// <summary>
-        /// sqlDepartment control.
+        /// txtCourseDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlDepartment;
+        protected global::System.Web.UI.WebControls.TextBox txtCourseDescription;
 
         /// <summary>
-        /// txtGroupDescription control.
+        /// dbLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGroupDescription;
+        protected global::System.Web.UI.WebControls.DropDownList dbLevel;
 
         /// <summary>
-        /// btnAddGroup control.
+        /// txtCourseLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddGroup;
+        protected global::System.Web.UI.WebControls.TextBox txtCourseLevel;
 
         /// <summary>
-        /// groupList control.
+        /// btnAddCourse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView groupList;
+        protected global::System.Web.UI.WebControls.Button btnAddCourse;
 
         /// <summary>
-        /// SqlGroup control.
+        /// courseList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlGroup;
+        protected global::System.Web.UI.WebControls.GridView courseList;
+
+        /// <summary>
+        /// SqlCourse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlCourse;
     }
 }

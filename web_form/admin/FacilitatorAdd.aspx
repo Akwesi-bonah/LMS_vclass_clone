@@ -13,7 +13,7 @@
                 <div class="col-md-8">
                     <div class="card centered-form">
                         <div class="card-header badge-primary">
-                            <h3>Add Administrator</h3>
+                            <h3>Add Facilitator</h3>
                         </div>
                         <div class="card-body">
                             <asp:Label ID="lblError" runat="server" CssClass="text-danger" Visible="False" />
@@ -65,7 +65,7 @@
                                 <div class="col-md-6">
                                     <asp:Button  ID="btnAddFac" runat="server" Text="Save" CssClass="btn btn-primary" OnClick="btnAddFac_Click"    />
                                 </div>
-                                <div class="col-md-8 text-right">
+                                <div class="col-md-6 text-right">
                                     <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-secondary"  OnClick="btnClear_Click"  />
                                 </div>
                             </div>

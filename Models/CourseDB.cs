@@ -20,7 +20,7 @@ namespace vclass_clone.Models
         public string Code { get; set; }
 
         [Required(ErrorMessage = "Course description is required.")]
-        [StringLength(255, ErrorMessage = "Course description cannot be longer than 20 characters.")]
+        [StringLength(255, ErrorMessage = "Course description cannot be longer than 255 characters.")]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Course level is required.")]

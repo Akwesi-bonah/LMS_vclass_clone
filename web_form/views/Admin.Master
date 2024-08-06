@@ -27,10 +27,10 @@
             <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                 <div class="navbar-brand-wrapper d-flex justify-content-center">
                     <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-                        <a class="navbar-brand brand-logo" href="index.html">
-                            <img src="../../../assets/images/logo.svg" alt="logo" /></a>
-                        <a class="navbar-brand brand-logo-mini" href="index.html">
-                            <img src="../../../assets/images/logo-mini.svg" alt="logo" /></a>
+                        <a class="navbar-brand brand-logo" href="#">
+                            <img src="#" alt="logo" /></a>
+                        <a class="navbar-brand brand-logo-mini" href="#">
+                            <img src="#" alt="logo" /></a>
                         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                             <span class="typcn typcn-th-menu"></span>
                         </button>
@@ -40,8 +40,8 @@
                     <ul class="navbar-nav me-lg-2">
                         <li class="nav-item nav-profile dropdown">
                             <a class="nav-link" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-                                <img src="../../../assets/images/faces/face5.jpg" alt="profile" />
-                                <span class="nav-profile-name">Eugenia Mullins</span>
+                                <img src="#" alt="profile" />
+                                <span class="nav-profile-name"><%= Session["UserEmail"] %></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                                 <a class="dropdown-item">
@@ -59,10 +59,29 @@
                     <ul class="navbar-nav navbar-nav-right">
                         <li class="nav-item nav-date dropdown">
                             <a class="nav-link d-flex justify-content-center align-items-center" href="javascript:;">
-                                <h6 class="date mb-0">Today : Mar 23</h6>
+                                <h6 id="currentDateTime" class="date mb-0"></h6>
                                 <i class="typcn typcn-calendar"></i>
                             </a>
                         </li>
+
+                        <script>
+                            function updateDateTime() {
+                                var now = new Date();
+                                var options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+                                var formattedDate = now.toLocaleDateString('en-US', options);
+                                var hours = now.getHours();
+                                var minutes = now.getMinutes();
+                                var ampm = hours >= 12 ? 'PM' : 'AM';
+                                hours = hours % 12;
+                                hours = hours ? hours : 12;
+                                minutes = minutes < 10 ? '0' + minutes : minutes;
+                                var strTime = hours + ':' + minutes + ' ' + ampm;
+                                document.getElementById('currentDateTime').innerHTML = `Today: ${formattedDate}, ${strTime}`;
+                            }
+                            setInterval(updateDateTime, 1000);
+                            updateDateTime();
+                        </script>
+
 
 
                     </ul>
@@ -119,7 +138,7 @@
                 <nav class="sidebar sidebar-offcanvas" id="sidebar">
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="<%=Page.GetRouteUrl("AdminDashboard", null )%>">
                                 <i class="typcn typcn-device-desktop menu-icon"></i>
                                 <span class="menu-title">Dashboard</span>
                                 <div class="badge badge-danger">new</div>
@@ -148,7 +167,7 @@
                             <div class="collapse" id="form-elements">
                                 <ul class="nav flex-column sub-menu">
                                     <li class="nav-item"><a class="nav-link" href='<%=Page.GetRouteUrl("CourseList", null) %>'>Course List</a></li>
-                                     <li class="nav-item"><a class="nav-link"href='<%=Page.GetRouteUrl("CourseAssignList", null) %>'>Course Assignment</a></li>
+                                    <li class="nav-item"><a class="nav-link" href='<%=Page.GetRouteUrl("CourseAssignList", null) %>'>Course Assignment</a></li>
 
                                 </ul>
                             </div>
@@ -163,39 +182,16 @@
                                 <ul class="nav flex-column sub-menu">
                                     <li class="nav-item"><a class="nav-link" href="#">Department</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#">Student Group</a></li>
-                                     <li class="nav-item"><a class="nav-link" href="#"> another</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">another</a></li>
 
 
                                 </ul>
                             </div>
                         </li>
+
+
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                                <i class="typcn typcn-th-small-outline menu-icon"></i>
-                                <span class="menu-title">Tables</span>
-                                <i class="menu-arrow"></i>
-                            </a>
-                            <div class="collapse" id="tables">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"><a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-                                <i class="typcn typcn-compass menu-icon"></i>
-                                <span class="menu-title">Icons</span>
-                                <i class="menu-arrow"></i>
-                            </a>
-                            <div class="collapse" id="icons">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"><a class="nav-link" href="pages/icons/font-awesome.html">Font Awesome</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                       
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../../docs/documentation.html">
+                            <a class="nav-link" href="#">
                                 <i class="typcn typcn-mortar-board menu-icon"></i>
                                 <span class="menu-title">Documentation</span>
                             </a>
@@ -244,7 +240,7 @@
             <script src='<%= ResolveClientUrl("~/static/assets/js/todolist.js") %>'></script>
 
             <script src='<%= ResolveClientUrl("~/static/bootstrap/js/bootstrap.js") %>'></script>
-            </div>
+        </div>
     </form>
 
 

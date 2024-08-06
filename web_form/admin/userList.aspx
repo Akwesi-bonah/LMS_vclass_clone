@@ -6,11 +6,11 @@
     <div class="content-wrapper">
         <div class="row">
             <div>
-                <div class="col-1">
+                <div class="col-"3>
                     <asp:Button runat="server" Text="Add New" ID="addBtn" CssClass="btn btn-success font-weight-bold" OnClick="addBtn_Click" />
-
                 </div>
-                <br />
+                 <br />
+
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">

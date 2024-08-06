@@ -12,7 +12,10 @@ namespace vclass_clone.web_form.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                BindGridView();
+            }
         }
 
         protected void adminList_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -47,7 +50,6 @@ namespace vclass_clone.web_form.admin
             }
             catch (Exception ex)
             {
-                // Handle exception
             }
         }
 

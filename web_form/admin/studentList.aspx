@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/web_form/views/Admin.Master" AutoEventWireup="true" CodeBehind="facilitatorList.aspx.cs" Inherits="vclass_clone.web_form.admin.facilitatorList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/web_form/views/Admin.Master" AutoEventWireup="true" CodeBehind="studentList.aspx.cs" Inherits="vclass_clone.web_form.admin.studentList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-     <div class="content-wrapper">
+      <div class="content-wrapper">
         <div class="row">
             <div>
                 <div class="col-1">
@@ -13,22 +13,20 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Facilitator List </h4>
+                            <h4 class="card-title">Student  List </h4>
                             <p class="card-description">
-                                Facilitators
+                                 Registered Student
                             </p>
                             <div class="table-responsive">
 
-                                <asp:GridView ID="adminList" CssClass="table  table-striped" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlFacilitator"  >
+                                <asp:GridView ID="StuList" CssClass="table  datatable  table-striped" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlStudent"  >
                                     <Columns>
-                                        
-                                        
                                         <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" SortExpression="Id" />
                                         <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
                                         <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
-                                        <asp:BoundField DataField="Phone" HeaderText="Phone" SortExpression="Phone" />
-                                        <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
-                                        
+                                        <asp:BoundField DataField="StudentNumber" HeaderText="StudentNumber" SortExpression="StudentNumber" />
+                                        <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
+                                        <asp:BoundField DataField="Level" HeaderText="Level" SortExpression="Level" />
                                         <asp:TemplateField HeaderText="Action">
                                             <ItemTemplate>
                                                 <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit" CommandArgument='<%# Eval("Id") %>' Text="Edit" CssClass="btn btn-primary" />
@@ -37,7 +35,7 @@
                                         </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
-                                <asp:SqlDataSource ID="SqlFacilitator" runat="server" ConnectionString="<%$ ConnectionStrings:LMSContext %>" SelectCommand="SELECT [Id], [FirstName], [LastName], [Phone], [Address] FROM [FacilitatorDBs]"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="SqlStudent" runat="server" ConnectionString="<%$ ConnectionStrings:LMSContext %>" SelectCommand="SELECT [Id], [FirstName], [LastName], [StudentNumber], [Gender],  [Level] FROM [StudentDBs]"></asp:SqlDataSource>
                             </div>
                         </div>
                     </div>

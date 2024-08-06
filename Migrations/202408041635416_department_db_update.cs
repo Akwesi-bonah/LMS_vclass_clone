@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class EnableCascadeDelete : DbMigration
+    public partial class department_db_update : DbMigration
     {
         public override void Up()
         {

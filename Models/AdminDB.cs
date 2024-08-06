@@ -22,9 +22,8 @@ namespace vclass_clone
         public string Phone { get; set; }
 
         [Required(ErrorMessage = "Address is required.")]
-        [StringLength(50, ErrorMessage = "Address cannot be longer than 50 characters.")]
+        [StringLength(255, ErrorMessage = "Address cannot be longer than 255 characters.")]
         public string Address { get; set; }
-
 
         [Required]
         public Guid UserId { get; set; }
@@ -33,7 +32,7 @@ namespace vclass_clone
         public AdminDB()
         {
             Id = Guid.NewGuid();
-
         }
     }
+
 }
