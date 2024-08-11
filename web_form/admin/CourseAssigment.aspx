@@ -22,15 +22,15 @@
                             <div class="form-group">
                                 <label for="DropDownListFacilitators">Facilitator</label>
                                 <asp:DropDownList ID="DropDownListFacilitators" CssClass="form-select" runat="server" DataSourceID="sqlFacilitator" DataTextField="Name" DataValueField="Id"></asp:DropDownList>
-                                <asp:SqlDataSource ID="sqlFacilitator" runat="server" ConnectionString="<%$ ConnectionStrings:LMSContext %>" SelectCommand="SELECT [Id], [LastName] FROM [FacilitatorDBs]"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="sqlFacilitator" runat="server" ConnectionString="<%$ ConnectionStrings:LMSContext %>" SelectCommand="SELECT [Id], ([LastName] + ' ' + [FirstName]) AS [Name] FROM [FacilitatorDBs]"></asp:SqlDataSource>
                             </div>
                             <div class="form-group">
                                 <label for="txtStartDate">Start Date</label>
-                                <asp:TextBox ID="txtStartDate" TextMode="SingleLine" runat="server" CssClass="form-control" Placeholder="Start Date (YYYY-MM-DD)" />
+                                <asp:TextBox ID="txtStartDate" TextMode="Date" runat="server" CssClass="form-control" Placeholder="Start Date (YYYY-MM-DD)" />
                             </div>
                             <div class="form-group">
                                 <label for="txtEndDate">End Date</label>
-                                <asp:TextBox ID="txtEndDate" TextMode="SingleLine" runat="server" CssClass="form-control" Placeholder="End Date (YYYY-MM-DD)" />
+                                <asp:TextBox ID="txtEndDate" TextMode="Date" runat="server" CssClass="form-control" Placeholder="End Date (YYYY-MM-DD)" />
                             </div>
                             <asp:Button ID="btnAddAssignment" runat="server" Text="Add Assignment" CssClass="btn btn-primary" OnClick="btnAddAssignment_Click" />
                         </div>
@@ -46,11 +46,13 @@
                             <div class="table-responsive">
                                 <asp:GridView ID="assignmentList" CssClass="table table-striped" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlAssignment" DataKeyNames="Id">
                                     <Columns>
+                                        
                                         <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" SortExpression="Id" />
                                         <asp:BoundField DataField="CourseId" HeaderText="CourseId" SortExpression="CourseId" />
                                         <asp:BoundField DataField="FacilitatorId" HeaderText="FacilitatorId" SortExpression="FacilitatorId" />
                                         <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />
                                         <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" />
+                                        
                                     </Columns>
                                 </asp:GridView>
                                 <asp:SqlDataSource ID="SqlAssignment" runat="server" ConnectionString="<%$ ConnectionStrings:LMSContext %>" SelectCommand="SELECT * FROM [CourseAssignmentDBs]"></asp:SqlDataSource>

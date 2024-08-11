@@ -20,36 +20,54 @@ namespace vclass_clone.web_form.auth
             string email = txtEmail.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            using (var context = new LMSContext())
+            try
             {
-                UserDB user = context.Users.FirstOrDefault(u => u.Email == email);
-
-                if (user != null && BCrypt.Net.BCrypt.Verify(password, user.Password))
+                using (var context = new LMSContext())
                 {
-                    
-                    Session["UserId"] = user.Id;
-                    Session["UserEmail"] = user.Email;
+                    // Fetch the user based on the provided email
+                    UserDB user = context.Users.FirstOrDefault(u => u.Email == email);
 
-                    // Redirect to the appropriate page based on user role
-                    if (user.Role == "Admin")
+                    // If user exists and the password is correct
+                    if (user != null && BCrypt.Net.BCrypt.Verify(password, user.Password))
                     {
-                        Response.Redirect(Page.GetRouteUrl("AdminDashboard", null));
+                        // Set session variables
+                        Session["UserId"] = user.Id;
+                        Session["UserEmail"] = user.Email;
+
+                        // Redirect to the appropriate page based on user role
+                        System.Diagnostics.Debug.WriteLine("User Role: " + user.Role);
+
+                        switch (user.Role)
+                        {
+                            case "Admin":
+                                Response.Redirect(Page.GetRouteUrl("AdminDashboard", null));
+                                break;
+                            case "Student":
+                                Response.Redirect("~/StudentDashboard.aspx");
+                                break;
+                            case "Facilitator":
+                                Response.Redirect(Page.GetRouteUrl("FacDashboard", null));
+                                break;
+                            default:
+                                lblErrorMessage.Text = "User role not recognized.";
+                                lblErrorMessage.Visible = true;
+                                break;
+                        }
                     }
-                    else if (user.Role == "Student")
+                    else
                     {
-                        Response.Redirect("~/StudentDashboard.aspx");
+                        lblErrorMessage.Text = "Invalid email or password.";
+                        lblErrorMessage.Visible = true;
                     }
-                    else if (user.Role == "Facilitator")
-                    {
-                        Response.Redirect("~/FacilitatorDashboard.aspx");
-                    }
-                }
-                else
-                {
-                    lblErrorMessage.Text = "Invalid email or password.";
-                    lblErrorMessage.Visible = true;
                 }
             }
+            catch (Exception ex)
+            {
+                // Log the exception (optional: integrate logging mechanism)
+                lblErrorMessage.Text = "An unexpected error occurred. Please try again later.";
+                lblErrorMessage.Visible = true;
+            }
         }
+
     }
 }

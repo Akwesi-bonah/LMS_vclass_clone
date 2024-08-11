@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity;
 
-
 namespace vclass_clone.Models
 {
     public class LMSContext : DbContext
@@ -17,6 +16,11 @@ namespace vclass_clone.Models
         public DbSet<FacilitatorDB> Facilitators { get; set; }
         public DbSet<CourseDB> Courses { get; set; }
         public DbSet<CourseAssignmentDB> CourseAssignments { get; set; }
+        public DbSet<AssignmentDB> Assignments { get; set; }
+        public DbSet<CourseMaterialDB> CourseMaterials { get; set; }
+        public DbSet<CourseMaterialFileDB> CourseMaterialFiles { get; set; }
+        public DbSet<AssignmentSubmissionDB> AssignmentSubmissions { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -73,6 +77,10 @@ namespace vclass_clone.Models
                 .WithMany(f => f.CourseAssignments)
                 .HasForeignKey(ca => ca.FacilitatorId)
                 .WillCascadeOnDelete(false);
+
+
+
+            
 
             base.OnModelCreating(modelBuilder);
         }

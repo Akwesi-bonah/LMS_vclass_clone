@@ -27,6 +27,12 @@ namespace vclass_clone.Models
         [StringLength(4, ErrorMessage = "Level cannot be longer than 4 characters.")]
         public string Level { get; set; }
 
+
+        [StringLength(20, ErrorMessage = "Enrollment key cannot be more than 20 character.")]
+        public string EnrollmentKey { set; get; } = string.Empty;
+
+        public string ImagePath { get; set; }
+
         public virtual ICollection<CourseAssignmentDB> CourseAssignments { get; set; }
 
         // Constructor to initialize default values

@@ -22,7 +22,6 @@
 </head>
 <body>
     <form id="adminMastet" runat="server">
-
         <div class="container-scroller">
             <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                 <div class="navbar-brand-wrapper d-flex justify-content-center">
@@ -188,8 +187,6 @@
                                 </ul>
                             </div>
                         </li>
-
-
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <i class="typcn typcn-mortar-board menu-icon"></i>
@@ -203,10 +200,6 @@
 
                     <asp:ContentPlaceHolder ID="MainContent" runat="server">
                     </asp:ContentPlaceHolder>
-
-
-
-
                     <!-- main-panel ends -->
                     <footer class="footer">
                         <div class="card">
@@ -220,13 +213,7 @@
                     </footer>
                 </div>
                 <!-- page-body-wrapper ends -->
-
-
             </div>
-
-
-
-
             <script src='<%= ResolveClientUrl("~/static/assets/vendors/js/vendor.bundle.base.js") %>'></script>
             <!-- Plugin js for this page-->
             <script src='<%= ResolveClientUrl("~/static/assets/vendors/chart.js/chart.umd.js") %>'></script>

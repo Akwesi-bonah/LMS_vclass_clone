@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Student.master.cs" Inherits="vclass_clone.web_form.views.Student" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="../../static/assets/vendors/typicons/typicons.css" />
+    <link rel="stylesheet" href="../../static/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../../static/assets/css/style.css">
+    <link rel="shortcut icon" href="../../static/assets/images/favicon.ico" />
+    <link href="../../static/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../static/assets/css/admin.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
