@@ -35,9 +35,13 @@ namespace vclass_clone.Models
         public Guid? GroupId { get; set; }
         public virtual GroupDB Group { get; set; }
 
+        // Navigation property for CourseEnrollments
+        public virtual ICollection<CourseEnrollmentDB> Enrollments { get; set; }
+
         public StudentDB()
         {
             Id = Guid.NewGuid();
+            Enrollments = new List<CourseEnrollmentDB>();
         }
     }
 

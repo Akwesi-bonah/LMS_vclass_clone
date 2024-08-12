@@ -34,12 +34,16 @@ namespace vclass_clone.Models
         public string ImagePath { get; set; }
 
         public virtual ICollection<CourseAssignmentDB> CourseAssignments { get; set; }
+        // Navigation property for CourseEnrollments
+        public virtual ICollection<CourseEnrollmentDB> Enrollments { get; set; }
 
         // Constructor to initialize default values
         public CourseDB()
         {
             Id = Guid.NewGuid();
             CourseAssignments = new List<CourseAssignmentDB>();
+            Enrollments = new List<CourseEnrollmentDB>();
+
         }
     }
 }

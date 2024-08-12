@@ -1277,6 +1277,10 @@
     <Compile Include="Migrations\202408101904363_Assignment set up.designer.cs">
       <DependentUpon>202408101904363_Assignment set up.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202408112020049_student enrollment.cs" />
+    <Compile Include="Migrations\202408112020049_student enrollment.designer.cs">
+      <DependentUpon>202408112020049_student enrollment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminDB.cs" />
     <Compile Include="Models\AssignmentDB.cs" />
@@ -1284,6 +1288,7 @@
     <Compile Include="Models\CourseAssignmentDB.cs" />
     <Compile Include="Models\CourseContentDB.cs" />
     <Compile Include="Models\CourseDB.cs" />
+    <Compile Include="Models\CourseEnrollmentDB.cs" />
     <Compile Include="Models\CourseMaterialDB.cs" />
     <Compile Include="Models\CourseMaterialFileDB.cs" />
     <Compile Include="Models\DepartmentDB.cs" />
@@ -1476,6 +1481,41 @@
     <Compile Include="web_form\facilitator\setEnrollmentKey.aspx.designer.cs">
       <DependentUpon>setEnrollmentKey.aspx</DependentUpon>
     </Compile>
+    <Compile Include="web_form\student\courseContent.aspx.cs">
+      <DependentUpon>courseContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web_form\student\courseContent.aspx.designer.cs">
+      <DependentUpon>courseContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web_form\student\enrollCourse.aspx.cs">
+      <DependentUpon>enrollCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web_form\student\enrollCourse.aspx.designer.cs">
+      <DependentUpon>enrollCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web_form\student\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web_form\student\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web_form\student\searchCourse.aspx.cs">
+      <DependentUpon>searchCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web_form\student\searchCourse.aspx.designer.cs">
+      <DependentUpon>searchCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web_form\student\stuCourse.aspx.cs">
+      <DependentUpon>stuCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web_form\student\stuCourse.aspx.designer.cs">
+      <DependentUpon>stuCourse.aspx</DependentUpon>
+    </Compile>
     <Compile Include="web_form\views\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1582,6 +1622,11 @@
     <Content Include="web_form\facilitator\QuizAdd.aspx" />
     <Content Include="web_form\facilitator\QuizList.aspx" />
     <Content Include="web_form\facilitator\setEnrollmentKey.aspx" />
+    <Content Include="web_form\student\courseContent.aspx" />
+    <Content Include="web_form\student\enrollCourse.aspx" />
+    <Content Include="web_form\student\Home.aspx" />
+    <Content Include="web_form\student\searchCourse.aspx" />
+    <Content Include="web_form\student\stuCourse.aspx" />
     <Content Include="web_form\views\Admin.Master" />
     <Content Include="web_form\views\Facilitator.Master" />
     <Content Include="web_form\views\Student.Master" />
@@ -1590,7 +1635,6 @@
     <Folder Include="Uploads\CourseImages\" />
     <Folder Include="web_form\login\" />
     <Folder Include="web_form\quiz\" />
-    <Folder Include="web_form\student\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202408041622486_new_database.resx">
@@ -1619,6 +1663,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202408101904363_Assignment set up.resx">
       <DependentUpon>202408101904363_Assignment set up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408112020049_student enrollment.resx">
+      <DependentUpon>202408112020049_student enrollment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

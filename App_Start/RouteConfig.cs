@@ -43,8 +43,12 @@ namespace vclass_clone
             routes.MapPageRoute("FacSetMaterial", "facilitator/manage/course/AddMaterial", "~/web_form/facilitator/addMaterial.aspx");
             routes.MapPageRoute("FacCourseContentEdit", "facilitator/courses", "~/web_form/facilitator/CourseEidt.aspx");
 
-
-
+            // Students view
+            routes.MapPageRoute("StuDashboard", "default/dashboard", "~/web_form/student/Home.aspx");
+            routes.MapPageRoute("StuCourse", "default/my_courses", "~/web_form/student/stuCourse.aspx");
+            routes.MapPageRoute("stuSearch", "default/search_course", "~/web_form/student/searchCourse.aspx");
+            routes.MapPageRoute("stuEnroll", "default/course_enroll", "~/Web_form/student/enrollCourse.aspx");
+            routes.MapPageRoute("stuCourseContext", "defualt/course_content", "~/web_form/student/courseContent.aspx");
         }
     }
 

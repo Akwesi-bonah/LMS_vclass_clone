@@ -20,6 +20,8 @@ namespace vclass_clone.Models
         public DbSet<CourseMaterialDB> CourseMaterials { get; set; }
         public DbSet<CourseMaterialFileDB> CourseMaterialFiles { get; set; }
         public DbSet<AssignmentSubmissionDB> AssignmentSubmissions { get; set; }
+        public DbSet<CourseEnrollmentDB> CourseEnrollments { get; set; }
+
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -78,9 +80,21 @@ namespace vclass_clone.Models
                 .HasForeignKey(ca => ca.FacilitatorId)
                 .WillCascadeOnDelete(false);
 
+            // CourseEnrollment configuration
+            modelBuilder.Entity<CourseEnrollmentDB>()
+                .HasRequired(e => e.Course)
+                .WithMany(c => c.Enrollments)
+                .HasForeignKey(e => e.CourseId)
+                .WillCascadeOnDelete(true);
 
 
-            
+            modelBuilder.Entity<CourseEnrollmentDB>()
+                .HasRequired(e => e.Student)
+                .WithMany(s => s.Enrollments)
+                .HasForeignKey(e => e.StudentId)
+                .WillCascadeOnDelete(true); 
+
+
 
             base.OnModelCreating(modelBuilder);
         }

@@ -99,7 +99,7 @@ namespace vclass_clone.web_form.admin
                     {
                         Email = email,
                         Password = hashedPassword,
-                        Role = "student",
+                        Role = "Student",
                         Status = "Active"
                     };
 
