@@ -6,32 +6,65 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <div class="content-wrapper">
-        <asp:Repeater ID="QuizRepeater" runat="server">
-            <ItemTemplate>
-                <div class="col-md-4 mb-2">
-                    <div class="card p-2 quiz-wrapper">
-                        <div class="d-flex justify-content-between align-items-center text-success mb-4">
-                            <em class="text-left">Quiz</em>
-                            <div class="text-right text-light bg-danger px-2 small rounded">
-                                Questions
-                            </div>
-                        </div>
-                        <h6><%# Eval("QuizHeader") %></h6>
-                    </div>
-                    <div class="dropup">
-                        <button class="btn btn-sm p-0 ms-2" type="button" data-bs-toggle="dropdown"><i class="fas fa-ellipsis-v m-0"></i></button>
-                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <div class="dropdown-item">
-                                <a href="#" class="update" onclick='EditQuiz(<%# Eval("QuizId") %>)'><i class="fas fa-pencil-alt"></i>Edit</a>
-                            </div>
-                            <div class="dropdown-item">
-                                <a href="#" class="delete" onclick='DeleteQuiz(<%# Eval("QuizId") %>)'><i class="fas fa-trash-alt"></i>Delete</a>
-                            </div>
-                        </div>
-                    </div>
+        <div class="row">
+            <div class="card">
+    <div class="card-body">
+        <h4 class="card-title">
+            Quizzes
+            <a class="btn btn-info btn-sm ml-2" href="add_quiz.aspx?subjectid=<%= Request.QueryString["subjectid"] %>">Add Quiz</a>
+        </h4>
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table id="order-listing" class="table">
+                        <thead>
+                            <tr>
+                                <th>Quiz Title</th>
+                                <th>Description</th>
+                                <th>Start Time</th>
+                                <th>Duration</th>
+                                <th>End Time</th>
+                                <th>Questions</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <asp:Repeater ID="QuizRepeater" runat="server">
+                                <ItemTemplate>
+                                    <tr>
+                                        <td><%# Eval("Title") %></td>
+                                        <td><%# Eval("Description") %></td>
+                                        <td><%# Eval("StartTime", "{0:MMMM dd, yyyy HH:mm}") %></td>
+                                        <td><%# Eval("DurationInMinutes") %> Mins</td>
+                                        <td><%# Eval("DueDate", "{0:MMMM dd, yyyy HH:mm}") %></td>
+                                        <td>
+                                            <a class="badge badge-info" href="questions.aspx?quizid=<%# Eval("Id") %>&subjectid=<%= Request.QueryString["subjectid"] %>">Questions</a>
+                                        </td>
+                                        <td>
+                                            <% 
+                                                var now = DateTime.Now;
+                                                string status = (DateTime.Parse(Eval("DueDate").ToString()) < now) ? "Done" : "Not Done";
+                                                string stcss = (status == "Done") ? "success" : "danger";
+                                            %>
+                                            <span class="badge badge-<%= stcss %>"><%= status %></span>
+                                        </td>
+                                        <td>
+                                            <a href="editQuiz.aspx?id=<%# Eval("Id") %>&subjectid=<%= Request.QueryString["subjectid"] %>" class="btn btn-info btn-xs"><i class="fa fa-edit"></i></a>
+                                            <a href="deleteQuiz.aspx?id=<%# Eval("Id") %>&subjectid=<%= Request.QueryString["subjectid"] %>" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </tbody>
+                    </table>
                 </div>
-            </ItemTemplate>
-        </asp:Repeater>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
     </div>
 </asp:Content>
 

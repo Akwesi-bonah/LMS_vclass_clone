@@ -13,12 +13,12 @@
         <h2 class="mb-4">Add Course Resources</h2>
 
         <!-- Message Label -->
-        <asp:Label ID="lblMaterialMessage" runat="server" Text="" CssClass="alert alert-info mt-3" Visible="false"></asp:Label>
+        <asp:Label ID="lblMaterialMessage" runat="server"   Text="" CssClass="alert alert-info mt-3" Visible="false"></asp:Label>
     
         <!-- Material Title Input -->
         <div class="form-group">
             <asp:Label ID="lblMaterialTitle" runat="server" Text="Material Title" CssClass="form-label"></asp:Label>
-            <asp:TextBox ID="txtMaterialTitle" runat="server" CssClass="form-control" placeholder="Enter material title"></asp:TextBox>
+            <asp:TextBox ID="txtMaterialTitle" TextMode="SingleLine" runat="server" CssClass="form-control" placeholder="Enter material title"></asp:TextBox>
         </div>
 
         <!-- Rich Text Editor for Material Content -->

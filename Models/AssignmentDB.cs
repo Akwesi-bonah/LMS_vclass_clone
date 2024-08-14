@@ -28,6 +28,8 @@ namespace vclass_clone.Models
 
         public DateTime DueDate { get; set; }
 
+        public string FileName {get; set; }
+
         // Navigation property
         public virtual ICollection<AssignmentSubmissionDB> Submissions { get; set; }
 

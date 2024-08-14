@@ -16,26 +16,24 @@ namespace vclass_clone.web_form.student
             if (!IsPostBack)
             {
                 LoadCourseDetails();
+                LoadAssignments();
+                ///*LoadQuizzes*/();
             }
         }
 
         private void LoadCourseDetails()
         {
-            // Retrieve the course ID from the session
             var courseId = Session["CourseId"] as string;
 
             if (!string.IsNullOrEmpty(courseId))
             {
                 try
                 {
-                    // Parse the course ID to GUID
                     Guid courseGuid = Guid.Parse(courseId);
 
                     using (var context = new LMSContext())
                     {
-                        // Retrieve the course and its sections from the database
-                        var course = context.Courses
-                                            .FirstOrDefault(c => c.Id == courseGuid);
+                        var course = context.Courses.FirstOrDefault(c => c.Id == courseGuid);
 
                         var sections = context.CourseMaterials
                                               .Where(cm => cm.CourseId == courseGuid)
@@ -45,12 +43,10 @@ namespace vclass_clone.web_form.student
 
                         if (course != null)
                         {
-                            // Set course details
                             lblCourseName.Text = course.Name;
                             lblCourseCode.Text = course.Code;
                             lblCourseDescription.Text = course.Description;
 
-                            // Bind course sections to repeater
                             SectionsRepeater.DataSource = sections;
                             SectionsRepeater.DataBind();
                         }
@@ -79,10 +75,68 @@ namespace vclass_clone.web_form.student
             }
         }
 
+        private void LoadAssignments()
+        {
+            var courseId = Session["CourseId"] as string;
+
+            if (!string.IsNullOrEmpty(courseId))
+            {
+                try
+                {
+                    Guid courseGuid = Guid.Parse(courseId);
+
+                    using (var context = new LMSContext())
+                    {
+                        var assignments = context.Assignments
+                                                 .Where(a => a.CourseId == courseGuid)
+                                                 .OrderBy(a => a.DueDate)
+                                                 .ToList();
+
+                        AssignmentsRepeater.DataSource = assignments;
+                        AssignmentsRepeater.DataBind();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lblMessage.Text = "An error occurred while loading assignments: " + ex.Message;
+                    lblMessage.CssClass = "alert alert-danger";
+                }
+            }
+        }
+
+        //private void LoadQuizzes()
+        //{
+        //    var courseId = Session["CourseId"] as string;
+
+        //    if (!string.IsNullOrEmpty(courseId))
+        //    {
+        //        try
+        //        {
+        //            Guid courseGuid = Guid.Parse(courseId);
+
+        //            using (var context = new LMSContext())
+        //            {
+        //                var quizzes = context.Quizzes
+        //                                     .Where(q => q.CourseId == courseGuid)
+        //                                     .OrderBy(q => q.Title)
+        //                                     .ToList();
+
+        //                QuizzesRepeater.DataSource = quizzes;
+        //                QuizzesRepeater.DataBind();
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            lblMessage.Text = "An error occurred while loading quizzes: " + ex.Message;
+        //            lblMessage.CssClass = "alert alert-danger";
+        //        }
+        //    }
+        //}
+
         protected void btnUnenroll_Click(object sender, EventArgs e)
         {
-            Guid? courseId = Session["CourseId"] as Guid?;
-            Guid? userId = Session["Userid"] as Guid?;
+           var courseId = Session["CourseId"] as Guid?;
+            var userId = Session["UserId"] as Guid?;
 
             if (courseId.HasValue && userId.HasValue)
             {
@@ -100,6 +154,7 @@ namespace vclass_clone.web_form.student
                             // Redirect to the student's course list page or show success message
                             lblMessage.Text = "You have successfully unenrolled from the course.";
                             lblMessage.CssClass = "alert alert-success";
+
                         }
                         else
                         {

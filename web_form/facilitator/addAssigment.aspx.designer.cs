@@ -15,6 +15,15 @@ namespace vclass_clone.web_form.facilitator
     {
 
         /// <summary>
+        /// lblAssignmentMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAssignmentMessage;
+
+        /// <summary>
         /// lblAssignmentTitle control.
         /// </summary>
         /// <remarks>
@@ -69,21 +78,30 @@ namespace vclass_clone.web_form.facilitator
         protected global::System.Web.UI.WebControls.TextBox txtDueDate;
 
         /// <summary>
-        /// btnCreateAssignment control.
+        /// lblAssignmentFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateAssignment;
+        protected global::System.Web.UI.WebControls.Label lblAssignmentFile;
 
         /// <summary>
-        /// lblAssignmentMessage control.
+        /// fileUploadAssignment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAssignmentMessage;
+        protected global::System.Web.UI.WebControls.FileUpload fileUploadAssignment;
+
+        /// <summary>
+        /// btnAddAssignment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddAssignment;
     }
 }

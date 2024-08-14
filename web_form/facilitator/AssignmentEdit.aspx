@@ -5,15 +5,44 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-4">
-        <h2>Edit Assignment</h2>
+        <div class="card">
+            <div class="card-header bg-warning text-dark">
+                <h2 class="mb-0">Edit Assignment</h2>
+            </div>
+            <div class="card-body">
+                <!-- Message Label -->
+                <asp:Label ID="lblAssignmentMessage" runat="server" Text="" CssClass="alert alert-info mt-3" Visible="false"></asp:Label>
 
-        <asp:Label ID="lblMessage" runat="server" CssClass="alert" Visible="false"></asp:Label>
+                <!-- Assignment Title Input -->
+                <div class="form-group">
+                    <asp:Label ID="lblAssignmentTitle" runat="server" Text="Assignment Title" CssClass="form-label"></asp:Label>
+                    <asp:TextBox TextMode="SingleLine" ID="txtAssignmentTitle" runat="server" CssClass="form-control" placeholder="Enter assignment title"></asp:TextBox>
+                </div>
 
-        <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control" Placeholder="Assignment Title"></asp:TextBox>
-        <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" CssClass="form-control mt-2" Placeholder="Assignment Description"></asp:TextBox>
+                <!-- Assignment Description -->
+                <div class="form-group">
+                    <asp:Label ID="lblAssignmentDescription" runat="server" Text="Assignment Description" CssClass="form-label"></asp:Label>
+                    <asp:TextBox TextMode="MultiLine" ID="txtAssignmentDescription" runat="server" CssClass="form-control" placeholder="Enter assignment description" Rows="5"></asp:TextBox>
+                </div>
 
-        <asp:Button ID="btnSave" runat="server" Text="Save Changes" CssClass="btn btn-primary mt-4" OnClick="btnSave_Click" />
-        <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn btn-secondary mt-4" OnClick="btnCancel_Click" />
+                <!-- Assignment Due Date -->
+                <div class="form-group">
+                    <asp:Label ID="lblDueDate" runat="server" Text="Due Date" CssClass="form-label"></asp:Label>
+                    <asp:TextBox ID="txtDueDate" runat="server" CssClass="form-control" TextMode="DateTimeLocal" placeholder="Enter due date"></asp:TextBox>
+                </div>
+
+                <!-- Assignment File Upload -->
+                <div class="form-group">
+                    <asp:Label ID="lblAssignmentFile" runat="server" Text="Upload New Assignment File (optional)" CssClass="form-label"></asp:Label>
+                    <asp:FileUpload ID="fileUploadAssignment" runat="server" CssClass="form-control-file" />
+                </div>
+
+                <!-- Update Button -->
+                <div class="form-group">
+                    <asp:Button ID="btnUpdateAssignment" runat="server" Text="Update Assignment" CssClass="btn btn-warning" OnClick="btnUpdateAssignment_Click" />
+                </div>
+            </div>
+        </div>
     </div>
 </asp:Content>
 

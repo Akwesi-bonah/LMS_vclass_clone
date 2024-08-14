@@ -15,15 +15,6 @@ namespace vclass_clone.web_form.facilitator
     {
 
         /// <summary>
-        /// gvAssignments control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAssignments;
-
-        /// <summary>
         /// btnAddAssignment control.
         /// </summary>
         /// <remarks>
@@ -31,5 +22,23 @@ namespace vclass_clone.web_form.facilitator
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnAddAssignment;
+
+        /// <summary>
+        /// lblAssignmentMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAssignmentMessage;
+
+        /// <summary>
+        /// gvAssignments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvAssignments;
     }
 }

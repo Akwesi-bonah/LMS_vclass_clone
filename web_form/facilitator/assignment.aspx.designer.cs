@@ -11,97 +11,79 @@ namespace vclass_clone.web_form.facilitator
 {
 
 
-    public partial class AssignmentEdit
+    public partial class assignment
     {
 
         /// <summary>
-        /// lblAssignmentMessage control.
+        /// lblCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAssignmentMessage;
+        protected global::System.Web.UI.WebControls.Label lblCode;
 
         /// <summary>
-        /// lblAssignmentTitle control.
+        /// fu1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAssignmentTitle;
+        protected global::System.Web.UI.WebControls.FileUpload fu1;
 
         /// <summary>
-        /// txtAssignmentTitle control.
+        /// txtFilename control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAssignmentTitle;
+        protected global::System.Web.UI.WebControls.TextBox txtFilename;
 
         /// <summary>
-        /// lblAssignmentDescription control.
+        /// txtDeadline control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAssignmentDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtDeadline;
 
         /// <summary>
-        /// txtAssignmentDescription control.
+        /// txtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAssignmentDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
 
         /// <summary>
-        /// lblDueDate control.
+        /// btnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDueDate;
+        protected global::System.Web.UI.WebControls.Button btnAdd;
 
         /// <summary>
-        /// txtDueDate control.
+        /// panel_index_warning control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDueDate;
+        protected global::System.Web.UI.WebControls.Panel panel_index_warning;
 
         /// <summary>
-        /// lblAssignmentFile control.
+        /// lbl_indexwarning control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAssignmentFile;
-
-        /// <summary>
-        /// fileUploadAssignment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileUploadAssignment;
-
-        /// <summary>
-        /// btnUpdateAssignment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateAssignment;
+        protected global::System.Web.UI.WebControls.Label lbl_indexwarning;
     }
 }

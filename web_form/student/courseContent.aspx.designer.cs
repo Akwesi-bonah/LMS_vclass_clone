@@ -15,15 +15,6 @@ namespace vclass_clone.web_form.student
     {
 
         /// <summary>
-        /// lblMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
-
-        /// <summary>
         /// lblCourseName control.
         /// </summary>
         /// <remarks>
@@ -42,13 +33,13 @@ namespace vclass_clone.web_form.student
         protected global::System.Web.UI.WebControls.Label lblCourseCode;
 
         /// <summary>
-        /// btnUnenroll control.
+        /// lblMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnUnenroll;
+        protected global::System.Web.UI.WebControls.Label lblMessage;
 
         /// <summary>
         /// lblCourseDescription control.
@@ -67,5 +58,23 @@ namespace vclass_clone.web_form.student
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater SectionsRepeater;
+
+        /// <summary>
+        /// AssignmentsRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater AssignmentsRepeater;
+
+        /// <summary>
+        /// QuizzesRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater QuizzesRepeater;
     }
 }
