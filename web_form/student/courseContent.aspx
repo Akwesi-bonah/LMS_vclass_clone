@@ -86,26 +86,32 @@
                             </div>
                         </div>
 
-                         <!-- Assignments Tab -->
-                    <div class="tab-pane fade" id="assignments" role="tabpanel" aria-labelledby="assignments-tab">
-                        <div class="mt-4">
-                            <asp:Repeater ID="AssignmentsRepeater" runat="server">
-                                <ItemTemplate>
-                                    <div class="assignment mb-4 p-3 border rounded bg-light">
-                                        <h5 class="assignment-title text-secondary mb-0">
-                                            <%# Eval("Title") %>
-                                        </h5>
-                                        <p class="assignment-description">
-                                            <%# Eval("Description") %>
-                                        </p>
-                                        <p class="assignment-due-date text-muted">
-                                            Due Date: <%# Eval("DueDate", "{0:MMMM dd, yyyy}") %>
-                                        </p>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:Repeater>
+                        <!-- Assignments Tab -->
+                        <div class="tab-pane fade" id="assignments" role="tabpanel" aria-labelledby="assignments-tab">
+                            <div class="mt-4">
+                                <asp:Repeater ID="AssignmentsRepeater" runat="server">
+                                    <ItemTemplate>
+                                        <div class="assignment mb-4 p-3 border rounded bg-light">
+                                            <h5 class="assignment-title text-secondary mb-0">
+                                                <%# Eval("Title") %>
+                                            </h5>
+                                            <p class="assignment-description">
+                                                <%# Eval("Description") %>
+                                            </p>
+                                            <p class="assignment-due-date text-muted">
+                                                Due Date: <%# Eval("DueDate", "{0:MMMM dd, yyyy}") %>
+                                            </p>
+                                            <!-- View Details LinkButton using Route -->
+                                            <asp:LinkButton ID="lnkViewDetails" runat="server" CssClass="btn btn-info btn-sm"
+                                                PostBackUrl='<%# ResolveUrl("~/defualt/course_assignment/") + Eval("Id") %>'>
+                        View Details
+                                            </asp:LinkButton>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </div>
                         </div>
-                    </div>
+
 
                         <!-- Quizzes Tab -->
                         <div class="tab-pane fade" id="quizzes" role="tabpanel" aria-labelledby="quizzes-tab">

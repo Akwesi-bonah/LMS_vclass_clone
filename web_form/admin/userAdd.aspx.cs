@@ -106,7 +106,7 @@ namespace vclass_clone.web_form.admin
             }
             catch (Exception ex)
             {
-                lblError.Text = "An error occurred while saving the administrator. Please try again.";
+                lblError.Text = $"An error occurred while saving the administrator. Please try again. {ex.Message}" ;
                 lblError.Visible = true;
                
             }

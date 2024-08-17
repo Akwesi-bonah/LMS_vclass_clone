@@ -50,6 +50,7 @@ namespace vclass_clone.web_form.admin
             }
             catch (Exception ex)
             {
+                Console.Write(ex.Message);
             }
         }
 

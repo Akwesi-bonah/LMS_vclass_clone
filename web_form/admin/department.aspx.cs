@@ -55,7 +55,7 @@ namespace vclass_clone.web_form.admin
             }
             catch (Exception ex)
             {
-                lblError.Text = "An error occurred while saving the department. Please try again.";
+                lblError.Text = $"An error occurred while saving the department. Please try again. {ex.Message}";
                 lblError.Visible = true;
                 // Consider logging the exception details here
             }
@@ -82,7 +82,7 @@ namespace vclass_clone.web_form.admin
                 }
                 catch (Exception ex)
                 {
-                    lblError.Text = "An error occurred while deleting the department. Please try again.";
+                    lblError.Text = $"An error occurred while deleting the department. Please try again.{ex.Message}";
                     lblError.Visible = true;
                     // Consider logging the exception details here
                 }

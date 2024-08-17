@@ -131,7 +131,7 @@ namespace vclass_clone.web_form.admin
             }
             catch (Exception ex)
             {
-                lblError.Text = "An error occurred while saving the facilitator. Please try again.";
+                lblError.Text = $"An error occurred while saving the facilitator. Please try again. {ex.Message}";
                 lblError.Visible = true;
                 // Consider logging the exception details here
             }

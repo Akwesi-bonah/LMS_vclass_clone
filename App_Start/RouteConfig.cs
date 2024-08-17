@@ -52,6 +52,7 @@ namespace vclass_clone
             routes.MapPageRoute("stuSearch", "default/search_course", "~/web_form/student/searchCourse.aspx");
             routes.MapPageRoute("stuEnroll", "default/course_enroll", "~/Web_form/student/enrollCourse.aspx");
             routes.MapPageRoute("stuCourseContext", "defualt/course_content", "~/web_form/student/courseContent.aspx");
+            routes.MapPageRoute("stuCourseAssignment", "defualt/course_assignment/{id}", "~/web_form/student/courseAssigDetail.aspx");
         }
     }
 

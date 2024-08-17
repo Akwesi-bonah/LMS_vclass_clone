@@ -64,7 +64,7 @@ namespace vclass_clone.web_form.auth
             catch (Exception ex)
             {
                 // Log the exception (optional: integrate logging mechanism)
-                lblErrorMessage.Text = "An unexpected error occurred. Please try again later.";
+                lblErrorMessage.Text = $"An unexpected error occurred. Please try again later. {ex.Message}";
                 lblErrorMessage.Visible = true;
             }
         }
