@@ -11,43 +11,34 @@ namespace vclass_clone.web_form.facilitator
 {
 
 
-    public partial class courseEnrollList
+    public partial class DiscussionPosts
     {
 
         /// <summary>
-        /// lblCourseTitle control.
+        /// PostsRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCourseTitle;
+        protected global::System.Web.UI.WebControls.Repeater PostsRepeater;
 
         /// <summary>
-        /// lblCourseDescription control.
+        /// txtPostContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCourseDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtPostContent;
 
         /// <summary>
-        /// lblError control.
+        /// btnPost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
-
-        /// <summary>
-        /// StudentsGridView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView StudentsGridView;
+        protected global::System.Web.UI.WebControls.Button btnPost;
     }
 }

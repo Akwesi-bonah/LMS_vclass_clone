@@ -95,7 +95,7 @@ namespace vclass_clone.web_form.student
 
                 // Parse assignmentIdStr to a Guid outside of the LINQ query
                 string assignmentIdStr = Page.RouteData.Values["id"] as string;
-                Guid studentId = (Guid)Session["Userid"]; // Assuming Userid is stored as a Guid in the session
+                 var studentId = (Guid)Session["Userid"]; // Assuming Userid is stored as a Guid in the session
 
                 if (Guid.TryParse(assignmentIdStr, out Guid assignmentId))
                 {

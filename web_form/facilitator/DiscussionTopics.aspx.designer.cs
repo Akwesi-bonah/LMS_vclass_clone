@@ -11,43 +11,43 @@ namespace vclass_clone.web_form.facilitator
 {
 
 
-    public partial class courseEnrollList
+    public partial class DiscussionTopics
     {
 
         /// <summary>
-        /// lblCourseTitle control.
+        /// TopicsRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCourseTitle;
+        protected global::System.Web.UI.WebControls.Repeater TopicsRepeater;
 
         /// <summary>
-        /// lblCourseDescription control.
+        /// txtTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCourseDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtTitle;
 
         /// <summary>
-        /// lblError control.
+        /// txtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
 
         /// <summary>
-        /// StudentsGridView control.
+        /// btnCreateTopic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView StudentsGridView;
+        protected global::System.Web.UI.WebControls.Button btnCreateTopic;
     }
 }

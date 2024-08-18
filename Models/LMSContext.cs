@@ -21,6 +21,8 @@ namespace vclass_clone.Models
         public DbSet<CourseMaterialFileDB> CourseMaterialFiles { get; set; }
         public DbSet<AssignmentSubmissionDB> AssignmentSubmissions { get; set; }
         public DbSet<CourseEnrollmentDB> CourseEnrollments { get; set; }
+        public DbSet<DiscussionTopicDB> DiscussionTopics { get; set; }
+        public DbSet<DiscussionPostDB> DiscussionPosts { get; set; }
 
 
 
@@ -92,7 +94,17 @@ namespace vclass_clone.Models
                 .HasRequired(e => e.Student)
                 .WithMany(s => s.Enrollments)
                 .HasForeignKey(e => e.StudentId)
-                .WillCascadeOnDelete(true); 
+                .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<DiscussionTopicDB>()
+           .HasMany(t => t.Posts)
+           .WithRequired(p => p.DiscussionTopic)
+           .HasForeignKey(p => p.DiscussionTopicId);
+
+            modelBuilder.Entity<DiscussionPostDB>()
+                .HasRequired(p => p.Student)
+                .WithMany()
+                .HasForeignKey(p => p.StudentId);
 
 
 

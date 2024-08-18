@@ -14,8 +14,10 @@
                 <li class="nav-item"><a class="nav-link" href="<%=Page.GetRouteUrl("FacManageCourseSet", null) %>">Setting</a></li>
                 <li class="nav-item"><a class="nav-link" href="<%=Page.GetRouteUrl("FacSetMaterial", null) %>">Add Content</a></li>
                 <li class="nav-item"><a class="nav-link" href="<%=Page.GetRouteUrl("FacCourseAssignList", null) %>">Assigment</a></li>
+                 <li class="nav-item"><a class="nav-link" href="<%=Page.GetRouteUrl("FacDiscussionList", null) %>">Discussion List</a></li>
+
                 <li class="nav-item"><a class="nav-link" href="#">Set Quiz</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Enroll List</a></li>
+                <li class="nav-item"><a class="nav-link" href="<%=Page.GetRouteUrl("FacCourseCourseEnrollList", null) %>">Enroll List</a></li>
 
             </ul>
         </div>

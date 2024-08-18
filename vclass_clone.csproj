@@ -1290,6 +1290,10 @@
     <Compile Include="Migrations\202408132316052_course assigement submission.designer.cs">
       <DependentUpon>202408132316052_course assigement submission.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202408171926585_discssion init.cs" />
+    <Compile Include="Migrations\202408171926585_discssion init.designer.cs">
+      <DependentUpon>202408171926585_discssion init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminDB.cs" />
     <Compile Include="Models\AssignmentDB.cs" />
@@ -1301,6 +1305,7 @@
     <Compile Include="Models\CourseMaterialDB.cs" />
     <Compile Include="Models\CourseMaterialFileDB.cs" />
     <Compile Include="Models\DepartmentDB.cs" />
+    <Compile Include="Models\DiscussionPostDB.cs" />
     <Compile Include="Models\FacilitatorDB.cs" />
     <Compile Include="Models\GroupDB.cs" />
     <Compile Include="Models\LMSContext.cs" />
@@ -1455,6 +1460,13 @@
     <Compile Include="web_form\facilitator\CourseEdit.aspx.designer.cs">
       <DependentUpon>CourseEdit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="web_form\facilitator\courseEnrollList.aspx.cs">
+      <DependentUpon>courseEnrollList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web_form\facilitator\courseEnrollList.aspx.designer.cs">
+      <DependentUpon>courseEnrollList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="web_form\facilitator\CourseMange.aspx.cs">
       <DependentUpon>CourseMange.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1468,6 +1480,21 @@
     </Compile>
     <Compile Include="web_form\facilitator\courseSettings.aspx.designer.cs">
       <DependentUpon>courseSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DiscussionTopicDB.cs" />
+    <Compile Include="web_form\facilitator\DiscussionPosts.aspx.cs">
+      <DependentUpon>DiscussionPosts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web_form\facilitator\DiscussionPosts.aspx.designer.cs">
+      <DependentUpon>DiscussionPosts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web_form\facilitator\DiscussionTopics.aspx.cs">
+      <DependentUpon>DiscussionTopics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web_form\facilitator\DiscussionTopics.aspx.designer.cs">
+      <DependentUpon>DiscussionTopics.aspx</DependentUpon>
     </Compile>
     <Compile Include="web_form\facilitator\FacIndex.aspx.cs">
       <DependentUpon>FacIndex.aspx</DependentUpon>
@@ -1503,6 +1530,13 @@
     </Compile>
     <Compile Include="web_form\facilitator\setEnrollmentKey.aspx.designer.cs">
       <DependentUpon>setEnrollmentKey.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web_form\facilitator\studentDetails.aspx.cs">
+      <DependentUpon>studentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web_form\facilitator\studentDetails.aspx.designer.cs">
+      <DependentUpon>studentDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="web_form\student\courseAssigDetail.aspx.cs">
       <DependentUpon>courseAssigDetail.aspx</DependentUpon>
@@ -1649,13 +1683,17 @@
     <Content Include="web_form\facilitator\AssignmentEdit.aspx" />
     <Content Include="web_form\facilitator\Course.aspx" />
     <Content Include="web_form\facilitator\CourseEdit.aspx" />
+    <Content Include="web_form\facilitator\courseEnrollList.aspx" />
     <Content Include="web_form\facilitator\CourseMange.aspx" />
     <Content Include="web_form\facilitator\courseSettings.aspx" />
+    <Content Include="web_form\facilitator\DiscussionPosts.aspx" />
+    <Content Include="web_form\facilitator\DiscussionTopics.aspx" />
     <Content Include="web_form\facilitator\FacIndex.aspx" />
     <Content Include="web_form\facilitator\Quiz.aspx" />
     <Content Include="web_form\facilitator\QuizAdd.aspx" />
     <Content Include="web_form\facilitator\QuizList.aspx" />
     <Content Include="web_form\facilitator\setEnrollmentKey.aspx" />
+    <Content Include="web_form\facilitator\studentDetails.aspx" />
     <Content Include="web_form\student\courseAssigDetail.aspx" />
     <Content Include="web_form\student\courseContent.aspx" />
     <Content Include="web_form\student\enrollCourse.aspx" />
@@ -1709,6 +1747,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202408132316052_course assigement submission.resx">
       <DependentUpon>202408132316052_course assigement submission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408171926585_discssion init.resx">
+      <DependentUpon>202408171926585_discssion init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

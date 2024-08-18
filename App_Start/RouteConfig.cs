@@ -45,6 +45,10 @@ namespace vclass_clone
             routes.MapPageRoute("FacCourseAssignList", "facilitator/course/assignment", "~/web_form/facilitator/assigmentList.aspx");
             routes.MapPageRoute("FacCourseAssignAdd", "facilitator/course/assignment/add", "~/web_form/facilitator/addAssigment.aspx");
             routes.MapPageRoute("FacCourseAssignEdit", "facilitator/course/assignment/edit", "~/web_form/facilitator/AssignmentEdit.aspx");
+            routes.MapPageRoute("FacCourseCourseEnrollList", "facilitator/course_enroll/list", "~/web_form/facilitator/courseEnrollList.aspx");
+            routes.MapPageRoute("FacStudentList", "Facilitator/enroll_student/details", "~/web_form/facilitator/studentDetails.aspx");
+            routes.MapPageRoute("FacDiscussionList", "Facilitator/discussion", "~/web_form/facilitator/DiscussionTopics.aspx");
+
 
             // Students view
             routes.MapPageRoute("StuDashboard", "default/dashboard", "~/web_form/student/Home.aspx");
