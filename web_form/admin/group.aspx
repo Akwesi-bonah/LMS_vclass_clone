@@ -41,8 +41,8 @@
                                 <div class="table-responsive">
                                     <asp:GridView ID="groupList" CssClass="table table-striped" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlGroup" DataKeyNames="Id">
                                         <Columns>
-                                            <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" SortExpression="Id" />
-                                            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                                            <asp:BoundField DataField="Id" HeaderText="Id"  ReadOnly="True" SortExpression="Id" />
+                                            <asp:BoundField DataField="GroupName" HeaderText="Name" SortExpression="Name" />
                                             <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                                             <asp:BoundField DataField="DepartmentName" HeaderText="Department Name" SortExpression="DepartmentName" />
 

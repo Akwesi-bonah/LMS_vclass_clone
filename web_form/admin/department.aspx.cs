@@ -12,7 +12,11 @@ namespace vclass_clone.web_form.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                departmentList.DataBind();
 
+            }
         }
 
         protected void btnAddDepartment_Click(object sender, EventArgs e)

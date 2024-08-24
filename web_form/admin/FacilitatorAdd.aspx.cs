@@ -126,7 +126,7 @@ namespace vclass_clone.web_form.admin
                     context.Facilitators.Add(newFac);
                     context.SaveChanges();
 
-                    Response.Redirect(Page.GetRouteUrl("FacilitatorList"));
+                    Response.Redirect(Page.GetRouteUrl("FacilitatorList", null));
                 }
             }
             catch (Exception ex)

@@ -1,4 +1,6 @@
 ﻿using System.Web.Routing;
+using vclass_clone.web_form.facilitator;
+using vclass_clone.web_form.views;
 
 namespace vclass_clone
 {
@@ -28,9 +30,13 @@ namespace vclass_clone
             routes.MapPageRoute("StudentAdd", "student/Add", "~/web_form/admin/studentAdd.aspx");
             routes.MapPageRoute("StudentEdit", "student/Edit", "~/web_form/admin/studentList.aspx");
 
-            routes.MapPageRoute("CourseList", "course/list", "~/web_form/admin/Course.aspx");
+            routes.MapPageRoute("CourseList", "course/list", "~/web_form/admin/AdminCourse.aspx");
             routes.MapPageRoute("CourseAdd", "course/Add", "~/web_form/admin/CourseAdd.aspx");
             routes.MapPageRoute("CourseAssignList", "course/assign/list", "~/web_form/admin/CourseAssigment.aspx");
+            routes.MapPageRoute("Departement", "department/list", "~/web_form/admin/department.aspx");
+            routes.MapPageRoute("Groups", "Group/list", "~/web_form/admin/group.aspx");
+
+
 
 
             // facilitator view
@@ -39,12 +45,13 @@ namespace vclass_clone
             routes.MapPageRoute("FacManageCourse", "facilitator/manage/course/", "~/web_form/facilitator/CourseMange.aspx");
             routes.MapPageRoute("FacManageCourseSet", "facilitator/manage/course/settings", "~/web_form/facilitator/courseSettings.aspx");
             routes.MapPageRoute("FacSetEnroll", "facilitator/manage/course/EnrollKey", "~/web_form/facilitator/setEnrollmentKey.aspx");
-            routes.MapPageRoute("FacSetAssigment", "facilitator/manage/course/AddAssigment", "~/web_form/facilitator/addAssigment.aspx");
+            routes.MapPageRoute("FacSetAssigment", "facilitator/manage/course/add_assignment", "~/web_form/facilitator/addAssigment.aspx");
             routes.MapPageRoute("FacSetMaterial", "facilitator/manage/course/AddMaterial", "~/web_form/facilitator/addMaterial.aspx");
             routes.MapPageRoute("FacCourseContentEdit", "facilitator/courses", "~/web_form/facilitator/CourseEidt.aspx");
             routes.MapPageRoute("FacCourseAssignList", "facilitator/course/assignment", "~/web_form/facilitator/assigmentList.aspx");
             routes.MapPageRoute("FacCourseAssignAdd", "facilitator/course/assignment/add", "~/web_form/facilitator/addAssigment.aspx");
             routes.MapPageRoute("FacCourseAssignEdit", "facilitator/course/assignment/edit", "~/web_form/facilitator/AssignmentEdit.aspx");
+            routes.MapPageRoute("FacCourseAssignSubmission", "facilitator/course/assignment/Submission", "~/web_form/facilitator/AssigmentSubmission.aspx");
             routes.MapPageRoute("FacCourseCourseEnrollList", "facilitator/course_enroll/list", "~/web_form/facilitator/courseEnrollList.aspx");
             routes.MapPageRoute("FacStudentList", "Facilitator/enroll_student/details", "~/web_form/facilitator/studentDetails.aspx");
             routes.MapPageRoute("FacDiscussionList", "Facilitator/discussion", "~/web_form/facilitator/DiscussionTopics.aspx");
@@ -55,8 +62,8 @@ namespace vclass_clone
             routes.MapPageRoute("StuCourse", "default/my_courses", "~/web_form/student/stuCourse.aspx");
             routes.MapPageRoute("stuSearch", "default/search_course", "~/web_form/student/searchCourse.aspx");
             routes.MapPageRoute("stuEnroll", "default/course_enroll", "~/Web_form/student/enrollCourse.aspx");
-            routes.MapPageRoute("stuCourseContext", "defualt/course_content", "~/web_form/student/courseContent.aspx");
-            routes.MapPageRoute("stuCourseAssignment", "defualt/course_assignment/{id}", "~/web_form/student/courseAssigDetail.aspx");
+            routes.MapPageRoute("stuCourseContext", "default/course_content", "~/web_form/student/courseContent.aspx");
+            routes.MapPageRoute("stuCourseAssignment", "default/course_assignment/{id}", "~/web_form/student/courseAssigDetail.aspx");
         }
     }
 

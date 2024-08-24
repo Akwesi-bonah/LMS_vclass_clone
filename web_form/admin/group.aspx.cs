@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -23,11 +24,9 @@ namespace vclass_clone.web_form.admin
         {
             SqlGroup.DataBind();
             sqlDepartment.DataBind();
+            groupList.DataBind();
         }
-        private void BindGroupGridView()
-        {
-            SqlGroup.DataBind();
-        }
+        
 
         protected void btnAddGroup_Click(object sender, EventArgs e)
         {
@@ -44,11 +43,16 @@ namespace vclass_clone.web_form.admin
 
                     context.Groups.Add(group);
                     context.SaveChanges();
+
+                    lblError.Text = "Group added successfully.";
+                    lblError.CssClass = "text-success";
+                    lblError.Visible = true;
+                    ClearForm();
+                    Bind();
+
                 }
 
-                lblError.Visible = false;
-                BindGroupGridView();
-                ClearForm();
+
             }
             catch (Exception ex)
             {
@@ -83,8 +87,7 @@ namespace vclass_clone.web_form.admin
                         context.SaveChanges();
                     }
                 }
-
-                BindGroupGridView();
+                Bind();
             }
         }
     }

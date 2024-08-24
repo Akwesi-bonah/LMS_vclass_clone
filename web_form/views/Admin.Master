@@ -179,8 +179,8 @@
                             </a>
                             <div class="collapse" id="tools">
                                 <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"><a class="nav-link" href="#">Department</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">Student Group</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="<%=Page.GetRouteUrl("Departement", null) %>">Department</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="<%=Page.GetRouteUrl("Groups", null) %>">Student Group</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#">another</a></li>
 
 
@@ -225,7 +225,7 @@
             <script src='<%= ResolveClientUrl("~/static/assets/js/template.js") %>'></script>
             <script src='<%= ResolveClientUrl("~/static/assets/js/settings.js") %>'></script>
             <script src='<%= ResolveClientUrl("~/static/assets/js/todolist.js") %>'></script>
-
+            <script src'<%= ResolveClientUrl("") %>'></script>
             <script src='<%= ResolveClientUrl("~/static/bootstrap/js/bootstrap.js") %>'></script>
         </div>
     </form>

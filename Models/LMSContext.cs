@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-
 namespace vclass_clone.Models
 {
     public class LMSContext : DbContext
@@ -23,6 +22,8 @@ namespace vclass_clone.Models
         public DbSet<CourseEnrollmentDB> CourseEnrollments { get; set; }
         public DbSet<DiscussionTopicDB> DiscussionTopics { get; set; }
         public DbSet<DiscussionPostDB> DiscussionPosts { get; set; }
+        public DbSet<QuizDB> Quizzes { get; set; }
+        public DbSet<QuestionDB> Questions { get; set; }
 
 
 
@@ -105,6 +106,20 @@ namespace vclass_clone.Models
                 .HasRequired(p => p.Student)
                 .WithMany()
                 .HasForeignKey(p => p.StudentId);
+
+            // QuizDB configuration
+            modelBuilder.Entity<QuizDB>()
+                .HasRequired(q => q.Course)
+                .WithMany(c => c.Quizzes)
+                .HasForeignKey(q => q.CourseId)
+                .WillCascadeOnDelete(false);
+
+            // QuestionDB configuration
+            modelBuilder.Entity<QuestionDB>()
+                .HasRequired(q => q.Quiz)
+                .WithMany(qz => qz.Questions)
+                .HasForeignKey(q => q.QuizId)
+                .WillCascadeOnDelete(true);
 
 
 

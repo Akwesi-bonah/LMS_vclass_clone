@@ -8,7 +8,7 @@
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2>Assignments</h2>
-            <asp:LinkButton ID="btnAddAssignment" runat="server" CssClass="btn btn-primary" PostBackUrl="~/AddAssignment.aspx" OnClick="btnAddAssignment_Click">
+            <asp:LinkButton ID="btnAddAssignment" runat="server" CssClass="btn btn-primary" PostBackUrl="../facilitator/addAssigment.aspx" OnClick="btnAddAssignment_Click">
                 <i class="fa fa-plus"></i> Add New Assignment
             </asp:LinkButton>
         </div>

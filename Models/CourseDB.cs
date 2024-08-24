@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -33,17 +34,21 @@ namespace vclass_clone.Models
 
         public string ImagePath { get; set; }
 
+
+        
+
         public virtual ICollection<CourseAssignmentDB> CourseAssignments { get; set; }
         // Navigation property for CourseEnrollments
         public virtual ICollection<CourseEnrollmentDB> Enrollments { get; set; }
 
+        public virtual ICollection<QuizDB> Quizzes { get; set; }
         // Constructor to initialize default values
         public CourseDB()
         {
             Id = Guid.NewGuid();
             CourseAssignments = new List<CourseAssignmentDB>();
             Enrollments = new List<CourseEnrollmentDB>();
-
+            Quizzes = new List<QuizDB>();
         }
     }
 }

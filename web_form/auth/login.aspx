@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="vclass_clone.web_form.auth.login" %>
+﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="vclass_clone.web_form.auth.login" %>
 
 <!DOCTYPE html>
 

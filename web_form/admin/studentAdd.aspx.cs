@@ -123,7 +123,7 @@ namespace vclass_clone.web_form.admin
                     context.Students.Add(newStu);
                     context.SaveChanges();
 
-                    Response.Redirect(Page.GetRouteUrl("StudentList"));
+                    Response.Redirect(Page.GetRouteUrl("StudentList", null));
                 }
             }
             catch (Exception ex)

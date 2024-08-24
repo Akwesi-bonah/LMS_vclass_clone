@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.UI;
 
 namespace vclass_clone.Models
 {
@@ -25,11 +26,19 @@ namespace vclass_clone.Models
 
         public DateTime DueDate { get; set; }
 
-        //public virtual ICollection<Question> Questions { get; set; }
+        public DateTime Duration { get; set; }
+
+        public virtual ICollection<QuestionDB> Questions { get; set; }
+
+        public QuizDB()
+        {
+            Id = Guid.NewGuid();
+            Questions = new List<QuestionDB>();
+        }
 
     }
 
-    
+
 
 
 

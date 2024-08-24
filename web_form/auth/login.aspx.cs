@@ -42,7 +42,7 @@ namespace vclass_clone.web_form.auth
                             case "Admin":
                                 Response.Redirect(Page.GetRouteUrl("AdminDashboard", null));
                                 break;
-                            case "student":
+                            case "Student":
                                 Response.Redirect(Page.GetRouteUrl("StuDashboard", null));
                                 break;
                             case "Facilitator":

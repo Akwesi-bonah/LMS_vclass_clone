@@ -10,53 +10,77 @@ namespace vclass_clone.web_form.facilitator
 {
     public partial class QuizList : System.Web.UI.Page
     {
+        public List<QuizInfo> Quiz_List = new List<QuizInfo>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //LoadQuizzes();
+                LoadQuizzes();
             }
         }
 
-        //private void LoadQuizzes()
-        //{
-        //    var subjectIdString = Request.QueryString["subjectid"];
-        //    if (string.IsNullOrEmpty(subjectIdString))
-        //    {
-        //        lblMessage.Text = "Subject ID is missing.";
-        //        lblMessage.CssClass = "alert alert-danger";
-        //        return;
-        //    }
+        private void LoadQuizzes()
+        {
+            string courseIdString = Session["CourseId"] as string;
 
-        //    try
-        //    {
-        //        Guid subjectId = Guid.Parse(subjectIdString);
+            if (string.IsNullOrEmpty(courseIdString) || !Guid.TryParse(courseIdString, out Guid courseId))
+            {
+                lblMessage.Text = "Course ID is missing or invalid.";
+                lblMessage.CssClass = "alert alert-danger";
+                return;
+            }
 
-        //        using (var context = new LMSContext())
-        //        {
-        //            var quizzes = context.Quizze
-        //                                 .Where(q => q.CourseId == subjectId)
-        //                                 .Select(q => new
-        //                                 {
-        //                                     q.Id,
-        //                                     q.Title,
-        //                                     q.Description,
-        //                                     StartTime = q.StartTime,
-        //                                     DueDate = q.DueDate,
-        //                                     DurationInMinutes = (q.DueDate - q.StartTime).TotalMinutes
-        //                                 })
-        //                                 .OrderBy(q => q.StartTime)
-        //                                 .ToList();
+            try
+            {
+                using (var context = new LMSContext())
+                {
+                    // Select only the necessary fields for better performance
+                    var course = context.Courses.FirstOrDefault(c => c.Id == courseId);
+                    var quizzes = context.Quizzes
+                                         .Where(q => q.CourseId == courseId)
+                                         .Select(q => new QuizInfo
+                                         {
+                                             Id = q.Id.ToString(),
+                                             Title = q.Title,
+                                             Description = q.Description,
+                                             StartDate = q.StartTime.ToString("MM/dd/yyyy HH:mm"),
+                                             EndDate = q.DueDate.ToString("MM/dd/yyyy HH:mm"),
+                                             Duration = q.Duration.ToString()
+                                         })
+                                         .ToList();
 
-        //            QuizRepeater.DataSource = quizzes;
-        //            QuizRepeater.DataBind();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        lblMessage.Text = "An error occurred while loading quizzes: " + ex.Message;
-        //        lblMessage.CssClass = "alert alert-danger";
-        //    }
-        //}
+                    if (course != null)
+                    {
+                        lblSubj.Text = course.Name;
+                        lblCode.Text = course.Code;
+
+                        Quiz_List = quizzes;
+                    }
+                    else
+                    {
+                        lblMessage.Text = "Course not found.";
+                        lblMessage.CssClass = "alert alert-warning";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // You can use a logging framework here instead of showing the message to users
+                lblMessage.Text = "An error occurred while loading quizzes. Please try again later.";
+                lblMessage.CssClass = "alert alert-danger";
+                // Log the exception, e.g., LogManager.GetLogger(typeof(QuizList)).Error(ex);
+            }
+        }
+
+        public class QuizInfo
+        {
+            public string Id { get; set; }
+            public string Title { get; set; }
+            public string Description { get; set; }
+            public string StartDate { get; set; }
+            public string EndDate { get; set; }
+            public string Duration { get; set; }
+        }
     }
 }
