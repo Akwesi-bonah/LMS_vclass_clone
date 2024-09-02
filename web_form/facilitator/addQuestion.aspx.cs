@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -21,12 +22,13 @@ namespace vclass_clone.web_form.facilitator
 
         private void LoadSubjectDetails()
         {
-            Guid subjectGuid;
-            if (Guid.TryParse(subjectId, out subjectGuid))
+            string course_id = Session["CourseID"] as String;
+            Guid courseGuid = Guid.Parse(course_id);
+            if ( courseGuid != null)
             {
                 using (var context = new LMSContext()) // Ensure proper disposal of the DbContext
                 {
-                    var subject = context.Courses.FirstOrDefault(s => s.Id == subjectGuid);
+                    var subject = context.Courses.FirstOrDefault(s => s.Id == courseGuid);
                     if (subject != null)
                     {
                         lblSubj.Text = subject.Name;
@@ -47,8 +49,25 @@ namespace vclass_clone.web_form.facilitator
                 return;
             }
 
-            Guid quizGuid;
-            if (!Guid.TryParse(quizId, out quizGuid))
+            if (string.IsNullOrWhiteSpace(txtOption1.Text))
+            {
+                lblMessage.Text = "Option A is required.";
+                lblMessage.CssClass = "alert alert-danger";
+                lblMessage.Visible = true;
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtOption2.Text))
+            {
+                lblMessage.Text = "Option B is required.";
+                lblMessage.CssClass = "alert alert-danger";
+                lblMessage.Visible = true;
+                return;
+            }
+
+            string quiz_id = Session["QuizID"] as string;
+
+            if (!Guid.TryParse(quiz_id, out Guid quizGuid))
             {
                 lblMessage.Text = "Invalid quiz ID.";
                 lblMessage.CssClass = "alert alert-danger";
@@ -67,8 +86,8 @@ namespace vclass_clone.web_form.facilitator
                         QuestionText = txtQuestion.Text.Trim(),
                         Option1 = txtOption1.Text.Trim(),
                         Option2 = txtOption2.Text.Trim(),
-                        Option3 = txtOption3.Text.Trim(),
-                        Option4 = txtOption4.Text.Trim(),
+                        Option3 = string.IsNullOrWhiteSpace(txtOption3.Text) ? null : txtOption3.Text.Trim(),
+                        Option4 = string.IsNullOrWhiteSpace(txtOption4.Text) ? null : txtOption4.Text.Trim(),
                         Answer = answer.SelectedValue
                     };
 
@@ -90,12 +109,26 @@ namespace vclass_clone.web_form.facilitator
                 txtOption4.Text = string.Empty;
                 answer.SelectedIndex = -1;
             }
+            
+            //catch (DbEntityValidationException ex)
+            //{
+            //    var validationErrors = ex.EntityValidationErrors
+            ////        .SelectMany(e => e.ValidationErrors)
+            ////        .Select(e => e.ErrorMessage);
+
+            //    lblMessage.Text = "Validation error: " + string.Join("; ", validationErrors);
+            //    lblMessage.CssClass = "alert alert-danger";
+            //    lblMessage.Visible = true;
+            //}
             catch (Exception ex)
             {
                 lblMessage.Text = "An error occurred while adding the question: " + ex.Message;
                 lblMessage.CssClass = "alert alert-danger";
                 lblMessage.Visible = true;
             }
+
+
         }
+
     }
 }

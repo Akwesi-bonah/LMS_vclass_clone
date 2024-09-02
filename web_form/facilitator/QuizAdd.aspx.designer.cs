@@ -105,6 +105,42 @@ namespace vclass_clone.web_form.facilitator
         protected global::System.Web.UI.WebControls.TextBox txtEndDate;
 
         /// <summary>
+        /// txtMaxAttempts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMaxAttempts;
+
+        /// <summary>
+        /// chkIsPublished control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkIsPublished;
+
+        /// <summary>
+        /// txtPassingScore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPassingScore;
+
+        /// <summary>
+        /// txtTotalMarks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTotalMarks;
+
+        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>

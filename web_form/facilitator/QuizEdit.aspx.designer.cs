@@ -69,6 +69,42 @@ namespace vclass_clone.web_form
         protected global::System.Web.UI.WebControls.TextBox txtDuration;
 
         /// <summary>
+        /// txtMaxAttempts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMaxAttempts;
+
+        /// <summary>
+        /// txtPassingScore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPassingScore;
+
+        /// <summary>
+        /// txtTotalMarks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTotalMarks;
+
+        /// <summary>
+        /// chkIsPublished control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkIsPublished;
+
+        /// <summary>
         /// btnSaveQuiz control.
         /// </summary>
         /// <remarks>

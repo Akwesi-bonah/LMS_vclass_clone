@@ -1,4 +1,5 @@
-﻿using System.Web.Routing;
+﻿using System.Collections.Generic;
+using System.Web.Routing;
 using vclass_clone.web_form.facilitator;
 using vclass_clone.web_form.views;
 
@@ -55,7 +56,12 @@ namespace vclass_clone
             routes.MapPageRoute("FacCourseCourseEnrollList", "facilitator/course_enroll/list", "~/web_form/facilitator/courseEnrollList.aspx");
             routes.MapPageRoute("FacStudentList", "Facilitator/enroll_student/details", "~/web_form/facilitator/studentDetails.aspx");
             routes.MapPageRoute("FacDiscussionList", "Facilitator/discussion", "~/web_form/facilitator/DiscussionTopics.aspx");
-
+            routes.MapPageRoute("FacQuizList", "Facilitator/quiz-list", "~/web_form/facilitator/QuizList.aspx");
+            routes.MapPageRoute("FacQuizAdd", "Facilitator/quiz-lAdd", "~/web_form/facilitator/QuizAdd.aspx");
+            routes.MapPageRoute("FacQuizEdit", "Facilitator/quiz-edit", "~/web_form/facilitator/QuizEdit.aspx");
+            routes.MapPageRoute("FacQuestionList", "Facilitator/question-list", "~/web_form/facilitator/QuestionList.aspx");
+            routes.MapPageRoute("FacQuestionAdd", "Facilitator/question-add", "~/web_form/facilitator/addQuestion.aspx");
+            //routes.
 
             // Students view
             routes.MapPageRoute("StuDashboard", "default/dashboard", "~/web_form/student/Home.aspx");
@@ -64,6 +70,10 @@ namespace vclass_clone
             routes.MapPageRoute("stuEnroll", "default/course_enroll", "~/Web_form/student/enrollCourse.aspx");
             routes.MapPageRoute("stuCourseContext", "default/course_content", "~/web_form/student/courseContent.aspx");
             routes.MapPageRoute("stuCourseAssignment", "default/course_assignment/{id}", "~/web_form/student/courseAssigDetail.aspx");
+            routes.MapPageRoute("stuCourseAssignmentDetail","default/course-assignment-details/" ,"~/web_form/student/courseAssigDetail.aspx");
+            routes.MapPageRoute("stuCourseQuizAttempt", "default/course-quiz-attempt/", "~/web_form/student/QuizConfirm.aspx");
+            routes.MapPageRoute("stuCourseQuizConfirm", "default/course-quiz-confirm/", "~/web_form/student/QuizConfirm.aspx");
+
         }
     }
 

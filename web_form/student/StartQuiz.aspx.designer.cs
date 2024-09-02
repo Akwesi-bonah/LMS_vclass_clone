@@ -7,47 +7,47 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace vclass_clone.web_form.facilitator
+namespace vclass_clone.web_form.student
 {
 
 
-    public partial class QuizList
+    public partial class StartQuiz
     {
 
         /// <summary>
-        /// lblCode control.
+        /// rptQuestions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCode;
+        protected global::System.Web.UI.WebControls.Repeater rptQuestions;
 
         /// <summary>
-        /// lblSubj control.
+        /// btnPrevious control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSubj;
+        protected global::System.Web.UI.WebControls.Button btnPrevious;
 
         /// <summary>
-        /// lblMessage control.
+        /// btnNext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
+        protected global::System.Web.UI.WebControls.Button btnNext;
 
         /// <summary>
-        /// QuizRepeater control.
+        /// lblPageNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater QuizRepeater;
+        protected global::System.Web.UI.WebControls.Label lblPageNumber;
     }
 }

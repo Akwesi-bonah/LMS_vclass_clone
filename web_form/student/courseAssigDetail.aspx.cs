@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,8 +21,8 @@ namespace vclass_clone.web_form.student
 
         private void LoadCourseAndAssignmentDetails()
         {
-            string assignmentId = Page.RouteData.Values["id"] as string;
-            var studentId = Session["Userid"] as Guid?; //Get user id from session
+            string assignmentId = Session["AssignmentID"] as string;
+            var studentId = Session["UserId"] as Guid?;
 
             if (Guid.TryParse(assignmentId, out Guid assignmentGuid))
             {
@@ -93,40 +94,63 @@ namespace vclass_clone.web_form.student
                 string filePath = "~/Uploads/Submission/" + fileUploadSubmission.FileName;
                 fileUploadSubmission.SaveAs(Server.MapPath(filePath));
 
-                // Parse assignmentIdStr to a Guid outside of the LINQ query
-                string assignmentIdStr = Page.RouteData.Values["id"] as string;
-                 var studentId = (Guid)Session["Userid"]; // Assuming Userid is stored as a Guid in the session
+                string assignmentIdStr = Session["AssignmentID"] as string;
+                var userId = (Guid)Session["UserId"];
 
                 if (Guid.TryParse(assignmentIdStr, out Guid assignmentId))
                 {
                     using (var context = new LMSContext())
+                    using (var transaction = context.Database.BeginTransaction())
                     {
-                        var existingSubmission = context.AssignmentSubmissions
-                            .Where(s => s.AssignmentId == assignmentId && s.StudentId == studentId)
-                            .FirstOrDefault();
+                        try
+                        {
+                            // Get student ID using user ID
+                            var student = context.Students.FirstOrDefault(st => st.UserId == userId);
 
-                        if (existingSubmission != null)
-                        {
-                            // Update existing submission
-                            existingSubmission.Content = fileUploadSubmission.FileName;
-                            existingSubmission.SubmissionDate = DateTime.Now;
-                            existingSubmission.IsSubmitted = true;
-                        }
-                        else
-                        {
-                            // Create new submission
-                            var submission = new AssignmentSubmissionDB
+                            if (student != null)
                             {
-                                AssignmentId = assignmentId,
-                                StudentId = studentId,
-                                Content = fileUploadSubmission.FileName,
-                                SubmissionDate = DateTime.Now,
-                                IsSubmitted = true
-                            };
-                            context.AssignmentSubmissions.Add(submission);
-                        }
+                                var existingSubmission = context.AssignmentSubmissions
+                                    .FirstOrDefault(s => s.AssignmentId == assignmentId && s.StudentId == student.Id);
 
-                        context.SaveChanges();
+                                if (existingSubmission != null)
+                                {
+                                    // Update existing submission
+                                    existingSubmission.Content = fileUploadSubmission.FileName;
+                                    existingSubmission.SubmissionDate = DateTime.Now;
+                                    existingSubmission.IsSubmitted = true;
+                                }
+                                else
+                                {
+                                    // Create new submission
+                                    var submission = new AssignmentSubmissionDB
+                                    {
+                                        AssignmentId = assignmentId,
+                                        StudentId = student.Id,
+                                        Content = fileUploadSubmission.FileName,
+                                        SubmissionDate = DateTime.Now,
+                                        IsSubmitted = true
+                                    };
+                                    context.AssignmentSubmissions.Add(submission);
+                                }
+
+                                context.SaveChanges();
+                                // Commit the transaction if everything is successful
+                                transaction.Commit();
+                            }
+                            else
+                            {
+                                // Handle case where student is not found
+                                Response.Redirect("~/ErrorPage.aspx");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            // Rollback the transaction if any error occurs
+                            transaction.Rollback();
+                            // Log the exception (ex) if necessary, and handle the error
+                            Debug.WriteLine(ex.Message);
+                            Response.Redirect("~/ErrorPage.aspx");
+                        }
                     }
 
                     // Reload the page to reflect changes
@@ -139,6 +163,7 @@ namespace vclass_clone.web_form.student
                 }
             }
         }
+
 
     }
 }

@@ -89,7 +89,8 @@
                         <!-- Assignments Tab -->
                         <div class="tab-pane fade" id="assignments" role="tabpanel" aria-labelledby="assignments-tab">
                             <div class="mt-4">
-                                <asp:Repeater ID="AssignmentsRepeater" runat="server">
+                                <asp:Repeater ID="AssignmentsRepeater" runat="server" OnItemCommand="AssignmentsRepeater_ItemCommand">
+
                                     <ItemTemplate>
                                         <div class="assignment mb-4 p-3 border rounded bg-light">
                                             <h5 class="assignment-title text-secondary mb-0">
@@ -102,9 +103,9 @@
                                                 Due Date: <%# Eval("DueDate", "{0:MMMM dd, yyyy}") %>
                                             </p>
                                             <!-- View Details LinkButton using Route -->
-                                            <asp:LinkButton ID="lnkViewDetails" runat="server" CssClass="btn btn-info btn-sm"
-                                                PostBackUrl='<%# ResolveUrl("~/defualt/course_assignment/") + Eval("Id") %>'>
-                        View Details
+                                            <asp:LinkButton ID="btnView" runat="server" CssClass="btn btn-primary" CommandName="ViewAssignment"
+                                                            CommandArgument='<%# Eval("Id") %>'>
+                                                View Detail
                                             </asp:LinkButton>
                                         </div>
                                     </ItemTemplate>
@@ -116,7 +117,7 @@
                         <!-- Quizzes Tab -->
                         <div class="tab-pane fade" id="quizzes" role="tabpanel" aria-labelledby="quizzes-tab">
                             <div class="mt-4">
-                                <asp:Repeater ID="QuizzesRepeater" runat="server">
+                                <asp:Repeater ID="QuizzesRepeater" runat="server" OnItemCommand="QuizzesRepeater_ItemCommand">
                                     <ItemTemplate>
                                         <div class="quiz mb-4 p-3 border rounded bg-light">
                                             <h5 class="quiz-title text-secondary mb-0">
@@ -125,15 +126,41 @@
                                             <p class="quiz-description">
                                                 <%# Eval("Description") %>
                                             </p>
+                                            <p class="quiz-start-time text-muted">
+                                                Start Time: <%# Eval("StartTime", "{0:MMMM dd, yyyy HH:mm}") %>
+                                            </p>
+                                            <p class="quiz-due-date text-muted">
+                                                Due Date: <%# Eval("DueDate", "{0:MMMM dd, yyyy HH:mm}") %>
+                                            </p>
+
+                                            <!-- Button to start the quiz -->
+                                            <asp:LinkButton ID="btnStartQuiz" runat="server" CssClass="btn btn-primary"
+                                                            CommandName="StartQuiz" CommandArgument='<%# Eval("Id") %>'
+                                                            Visible='<%# Convert.ToBoolean(Eval("IsQuizAvailable")) %>'>
+                                                Start Quiz
+                                            </asp:LinkButton>
+
+                                            <!-- Button to review the quiz results -->
+                                            <asp:LinkButton ID="btnReviewQuiz" runat="server" CssClass="btn btn-secondary"
+                                                            CommandName="ReviewQuiz" CommandArgument='<%# Eval("Id") %>'
+                                                            Visible='<%# Convert.ToBoolean(Eval("IsQuizOver")) %>'>
+                                                Review Quiz
+                                            </asp:LinkButton>
+
+                                            <!-- Display the score and grade if the quiz is over -->
+                                            <asp:Label ID="lblScore" runat="server" CssClass="badge badge-success ml-2"
+                                                       Text='<%# "Score: " + Eval("StudentScore") + " / " + Eval("TotalMarks") %>'
+                                                       Visible='<%# Convert.ToBoolean(Eval("IsQuizOver")) %>'>
+                                            </asp:Label>
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </asp:Content>
-

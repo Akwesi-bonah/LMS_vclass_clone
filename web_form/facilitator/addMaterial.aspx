@@ -19,7 +19,8 @@
         <div class="form-group">
             <asp:Label ID="lblMaterialTitle" runat="server" Text="Material Title" CssClass="form-label"></asp:Label>
             <asp:TextBox ID="txtMaterialTitle" TextMode="SingleLine" runat="server" CssClass="form-control" placeholder="Enter material title"></asp:TextBox>
-        </div>
+        
+            </div>
 
         <!-- Rich Text Editor for Material Content -->
         <div class="form-group">

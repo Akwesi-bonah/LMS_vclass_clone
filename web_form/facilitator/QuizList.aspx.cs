@@ -35,18 +35,17 @@ namespace vclass_clone.web_form.facilitator
             {
                 using (var context = new LMSContext())
                 {
-                    // Select only the necessary fields for better performance
                     var course = context.Courses.FirstOrDefault(c => c.Id == courseId);
                     var quizzes = context.Quizzes
                                          .Where(q => q.CourseId == courseId)
-                                         .Select(q => new QuizInfo
+                                         .Select(q => new
                                          {
-                                             Id = q.Id.ToString(),
-                                             Title = q.Title,
-                                             Description = q.Description,
-                                             StartDate = q.StartTime.ToString("MM/dd/yyyy HH:mm"),
-                                             EndDate = q.DueDate.ToString("MM/dd/yyyy HH:mm"),
-                                             Duration = q.Duration.ToString()
+                                             q.Id,
+                                             q.Title,
+                                             q.Description,
+                                             q.StartTime,
+                                             q.DueDate,
+                                             q.Duration
                                          })
                                          .ToList();
 
@@ -55,7 +54,20 @@ namespace vclass_clone.web_form.facilitator
                         lblSubj.Text = course.Name;
                         lblCode.Text = course.Code;
 
-                        Quiz_List = quizzes;
+                        var quizList = quizzes.Select(q => new QuizInfo
+                        {
+                            Id = q.Id.ToString(),
+                            Title = q.Title,
+                            Description = q.Description,
+                            StartDate = q.StartTime.ToString("yyyy-MM-dd HH:mm"),
+                            EndDate = q.DueDate.ToString("yyyy-MM-dd HH:mm"),
+                            Duration = q.Duration.ToString(),
+                            Status = (DateTime.Now > q.DueDate) ? "Done" : "Not Done",
+                            StatusClass = (DateTime.Now > q.DueDate) ? "badge-success" : "badge-danger"
+                        }).ToList();
+
+                        QuizRepeater.DataSource = quizList;
+                        QuizRepeater.DataBind();
                     }
                     else
                     {
@@ -66,12 +78,75 @@ namespace vclass_clone.web_form.facilitator
             }
             catch (Exception ex)
             {
-                // You can use a logging framework here instead of showing the message to users
-                lblMessage.Text = "An error occurred while loading quizzes. Please try again later.";
+                lblMessage.Text = $"An error occurred while loading quizzes. Please try again later. {ex.Message}";
                 lblMessage.CssClass = "alert alert-danger";
-                // Log the exception, e.g., LogManager.GetLogger(typeof(QuizList)).Error(ex);
             }
         }
+
+        protected void btnViewQuestions_Click(object sender, EventArgs e)
+        {
+            // Cast the sender to a Button
+            Button btn = (Button)sender;
+
+            // Retrieve the quizId from the CommandArgument of the Button
+            string quizId = btn.CommandArgument;
+
+
+            if (!string.IsNullOrEmpty(quizId))
+            {
+                Session["QuizId"] = quizId;
+
+                Response.Redirect(Page.GetRouteUrl("FacQuestionList", null));
+            }
+            else
+            {
+                // Handle the case where quizId or courseId is missing
+                lblMessage.Text = "Quiz ID or Course ID is missing.";
+                lblMessage.CssClass = "alert alert-danger";
+            }
+        }
+
+        protected void btnEditQuiz_Click(object sender, EventArgs e)
+        {
+            var btn = (Button)sender;
+            var quizId = new Guid(btn.CommandArgument); // Assuming CommandArgument is stored as a GUID
+
+            // Redirect to the edit page or open a modal for editing
+            Response.Redirect(Page.GetRouteUrl("FacQuizEdit", null));
+        }
+
+        protected void btnDeleteQuiz_Click(object sender, EventArgs e)
+        {
+            var btn = (Button)sender;
+            var quizId = new Guid(btn.CommandArgument);
+
+            // Confirm deletion
+            // Implement your delete logic here
+
+            using (var context = new LMSContext())
+            {
+                var quiz = context.Quizzes.Find(quizId);
+                if (quiz != null)
+                {
+                    context.Quizzes.Remove(quiz);
+                    context.SaveChanges();
+                }
+            }
+
+            // Rebind the Repeater to reflect changes
+            BindQuizzes();
+        }
+
+        private void BindQuizzes()
+        {
+            using (var context = new LMSContext())
+            {
+                var quizzes = context.Quizzes.ToList();
+                QuizRepeater.DataSource = quizzes;
+                QuizRepeater.DataBind();
+            }
+        }
+
 
         public class QuizInfo
         {
@@ -81,6 +156,8 @@ namespace vclass_clone.web_form.facilitator
             public string StartDate { get; set; }
             public string EndDate { get; set; }
             public string Duration { get; set; }
+            public string Status { get; set; }
+            public string StatusClass { get; set; }
         }
     }
 }

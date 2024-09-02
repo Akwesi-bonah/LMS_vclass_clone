@@ -225,7 +225,6 @@
             <script src='<%= ResolveClientUrl("~/static/assets/js/template.js") %>'></script>
             <script src='<%= ResolveClientUrl("~/static/assets/js/settings.js") %>'></script>
             <script src='<%= ResolveClientUrl("~/static/assets/js/todolist.js") %>'></script>
-            <script src'<%= ResolveClientUrl("") %>'></script>
             <script src='<%= ResolveClientUrl("~/static/bootstrap/js/bootstrap.js") %>'></script>
         </div>
     </form>

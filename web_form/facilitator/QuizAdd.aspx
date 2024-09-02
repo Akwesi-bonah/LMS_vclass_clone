@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="SiderContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-          <div class="content-wrapper">
+    <div class="content-wrapper">
     <div class="row">
         <div class="page-header">
             <h3 class="page-title">
@@ -74,6 +74,42 @@
                 </div>
             </div>
 
+            <!-- Max Attempts -->
+            <div class="form-group row">
+                <label for="txtMaxAttempts" class="col-sm-3 col-form-label">Max Attempts</label>
+                <div class="col-sm-9">
+                    <asp:TextBox ID="txtMaxAttempts" TextMode="Number" CssClass="form-control" runat="server" Placeholder="Enter maximum attempts" aria-describedby="MaxAttemptsHelp"></asp:TextBox>
+                    <small id="MaxAttemptsHelp" class="form-text text-muted">Specify the maximum number of attempts allowed for the quiz.</small>
+                </div>
+            </div>
+
+            <!-- Is Published -->
+            <div class="form-group row">
+                <label for="chkIsPublished" class="col-sm-3 col-form-label">Published</label>
+                <div class="col-sm-9">
+                    <asp:CheckBox ID="chkIsPublished" CssClass="form-check-input" runat="server" aria-describedby="IsPublishedHelp" />
+                    <small id="IsPublishedHelp" class="form-text text-muted">Check if the quiz should be visible to students.</small>
+                </div>
+            </div>
+
+            <!-- Passing Score -->
+            <div class="form-group row">
+                <label for="txtPassingScore" class="col-sm-3 col-form-label">Passing Score (%)</label>
+                <div class="col-sm-9">
+                    <asp:TextBox ID="txtPassingScore" TextMode="Number" CssClass="form-control" runat="server" Placeholder="Enter passing score percentage" aria-describedby="PassingScoreHelp"></asp:TextBox>
+                    <small id="PassingScoreHelp" class="form-text text-muted">Specify the passing score percentage for the quiz.</small>
+                </div>
+            </div>
+
+            <!-- Total Marks -->
+            <div class="form-group row">
+                <label for="txtTotalMarks" class="col-sm-3 col-form-label">Total Marks</label>
+                <div class="col-sm-9">
+                    <asp:TextBox ID="txtTotalMarks" TextMode="Number" CssClass="form-control" runat="server" Placeholder="Enter total marks" aria-describedby="TotalMarksHelp"></asp:TextBox>
+                    <small id="TotalMarksHelp" class="form-text text-muted">Specify the total marks for the quiz.</small>
+                </div>
+            </div>
+
             <!-- Submit Button -->
             <div class="form-group row">
                 <div class="col-sm-9 offset-sm-3">
@@ -83,5 +119,7 @@
         </div>
     </div>
 </div>
+
+
 
 </asp:Content>

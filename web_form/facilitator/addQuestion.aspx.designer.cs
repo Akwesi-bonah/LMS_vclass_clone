@@ -66,7 +66,7 @@ namespace vclass_clone.web_form.facilitator
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuestion;
+        protected global::CKEditor.NET.CKEditorControl txtQuestion;
 
         /// <summary>
         /// Label3 control.

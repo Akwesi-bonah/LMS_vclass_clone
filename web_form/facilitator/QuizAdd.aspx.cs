@@ -23,6 +23,10 @@ namespace vclass_clone.web_form.facilitator
             DateTime startTime;
             DateTime endTime;
             int duration;
+            int maxAttempts;
+            bool isPublished;
+            int passingScore;
+            int totalMarks;
 
             // Validate input
             if (string.IsNullOrEmpty(title))
@@ -60,6 +64,29 @@ namespace vclass_clone.web_form.facilitator
                 return;
             }
 
+            if (!int.TryParse(txtMaxAttempts.Text, out maxAttempts) || maxAttempts < 0)
+            {
+                lblMessage.Text = "Invalid maximum attempts. It must be a non-negative integer.";
+                lblMessage.CssClass = "alert alert-danger";
+                return;
+            }
+
+            if (!int.TryParse(txtPassingScore.Text, out passingScore) || passingScore < 0 || passingScore > 100)
+            {
+                lblMessage.Text = "Invalid passing score. It must be between 0 and 100.";
+                lblMessage.CssClass = "alert alert-danger";
+                return;
+            }
+
+            if (!int.TryParse(txtTotalMarks.Text, out totalMarks) || totalMarks <= 0)
+            {
+                lblMessage.Text = "Invalid total marks. It must be a positive integer.";
+                lblMessage.CssClass = "alert alert-danger";
+                return;
+            }
+
+            isPublished = chkIsPublished.Checked;
+
             // Get the course ID from the session
             string courseIdString = Session["CourseId"] as string;
             if (string.IsNullOrEmpty(courseIdString) || !Guid.TryParse(courseIdString, out Guid courseId))
@@ -81,7 +108,11 @@ namespace vclass_clone.web_form.facilitator
                         Description = description,
                         StartTime = startTime,
                         DueDate = endTime,
-                        Duration = duration,
+                        Duration = TimeSpan.FromMinutes(duration), // Convert duration to TimeSpan
+                        MaxAttempts = maxAttempts,
+                        IsPublished = isPublished,
+                        PassingScore = passingScore,
+                        TotalMarks = totalMarks,
                         CourseId = courseId
                     };
 
@@ -102,6 +133,6 @@ namespace vclass_clone.web_form.facilitator
                 // For simplicity, showing message on page instead of logging
             }
         }
+
     }
-}
 }

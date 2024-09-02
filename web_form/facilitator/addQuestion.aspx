@@ -1,13 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/web_form/views/Facilitator.Master" AutoEventWireup="true" CodeBehind="addQuestion.aspx.cs" Inherits="vclass_clone.web_form.facilitator.addQuestion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/web_form/views/Facilitator.Master" AutoEventWireup="true" CodeBehind="addQuestion.aspx.cs" Inherits="vclass_clone.web_form.facilitator.addQuestion" ValidateRequest="false" %>
+<%@ Register assembly="CKEditor.NET" namespace="CKEditor.NET" tagprefix="CKEditor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="https://cdn.ckeditor.com/4.18.0/standard/ckeditor.js"></script>
+    <link href="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.css" rel="stylesheet">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="SiderContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="content-wrapper">
+  <div class="content-wrapper">
     <div class="page-header">
         <h3 class="page-title">
-            <asp:Label ID="lblCode" runat="server" Text="Label"></asp:Label> 
+            <asp:Label ID="lblCode" runat="server" Text="Label"></asp:Label>
             (<asp:Label ID="lblSubj" runat="server" Text="Label"></asp:Label>)
         </h3>
         <nav aria-label="breadcrumb">
@@ -26,19 +30,22 @@
         <div class="card-body">
             <!-- Feedback message -->
             <asp:Label ID="lblMessage" runat="server" CssClass="alert" Visible="false"></asp:Label>
-            
+
             <!-- Question Input -->
             <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Question</label>
                 <div class="col-sm-9">
-                    <asp:TextBox ID="txtQuestion" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
+                    <CKEditor:CKEditorControl ID="txtQuestion" runat="server"></CKEditor:CKEditorControl>
+
                 </div>
+               
             </div>
 
             <!-- Options Input -->
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label">Options</label>
-                <div class="col-sm-9">
+                <label class="col-sm-3 col-form-label">Options
+                </label>
+                &nbsp;<div class="col-sm-9">
                     <div class="form-group">
                         <asp:Label ID="Label3" runat="server" Text="A:" CssClass="mr-2"></asp:Label>
                         <asp:TextBox ID="txtOption1" CssClass="form-control mb-2" runat="server"></asp:TextBox>

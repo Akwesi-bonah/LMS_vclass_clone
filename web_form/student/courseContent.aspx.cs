@@ -17,7 +17,7 @@ namespace vclass_clone.web_form.student
             {
                 LoadCourseDetails();
                 LoadAssignments();
-                ///*LoadQuizzes*/();
+                LoadQuizzes();
             }
         }
 
@@ -104,34 +104,76 @@ namespace vclass_clone.web_form.student
             }
         }
 
-        //private void LoadQuizzes()
-        //{
-        //    var courseId = Session["CourseId"] as string;
+        private void LoadQuizzes()
+        {
+            var courseId = Session["CourseId"] as string;
+            var userId = (Guid)Session["UserId"];
 
-        //    if (!string.IsNullOrEmpty(courseId))
-        //    {
-        //        try
-        //        {
-        //            Guid courseGuid = Guid.Parse(courseId);
+            if (!string.IsNullOrEmpty(courseId))
+            {
+                try
+                {
+                    Guid courseGuid = Guid.Parse(courseId);
 
-        //            using (var context = new LMSContext())
-        //            {
-        //                var quizzes = context.Quizzes
-        //                                     .Where(q => q.CourseId == courseGuid)
-        //                                     .OrderBy(q => q.Title)
-        //                                     .ToList();
+                    using (var context = new LMSContext())
+                    {
+                        var quizzes = context.Quizzes
+                            .Where(q => q.CourseId == courseGuid)
+                            .OrderBy(q => q.Title)
+                            .ToList();
 
-        //                QuizzesRepeater.DataSource = quizzes;
-        //                QuizzesRepeater.DataBind();
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            lblMessage.Text = "An error occurred while loading quizzes: " + ex.Message;
-        //            lblMessage.CssClass = "alert alert-danger";
-        //        }
-        //    }
-        //}
+                        var quizViews = quizzes.Select(q => new
+                        {
+                            q.Id,
+                            q.Title,
+                            q.Description,
+                            q.StartTime,
+                            q.DueDate,
+                            q.TotalMarks,
+                            IsQuizAvailable = DateTime.Now >= q.StartTime && DateTime.Now <= q.DueDate,
+                            IsQuizOver = DateTime.Now > q.DueDate,
+                            StudentSubmission = context.QuizSubmissions
+                                .Where(s => s.QuizId == q.Id && s.StudentId == userId)
+                                .Select(s => new
+                                {
+                                    s.Score
+                                })
+                                .FirstOrDefault(),
+                            StudentScore = (int?)context.QuizSubmissions // Cast to nullable int
+                                .Where(s => s.QuizId == q.Id && s.StudentId == userId)
+                                .Sum(s => (int?)s.Score) ?? 0 // Apply null-coalescing operator to nullable int
+                        }).ToList();
+
+                        QuizzesRepeater.DataSource = quizViews;
+                        QuizzesRepeater.DataBind();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lblMessage.Text = "An error occurred while loading quizzes: " + ex.Message;
+                    lblMessage.CssClass = "alert alert-danger";
+                }
+            }
+        }
+
+        protected void QuizzesRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "StartQuiz")
+            {
+                // Store quiz ID in session and redirect to the quiz start page
+                Session["SelectedQuizId"] = e.CommandArgument.ToString();
+                Response.Redirect(Page.GetRouteUrl("stuCourseQuizConfirm", null));
+            }
+            else if (e.CommandName == "ReviewQuiz")
+            {
+                // Store quiz ID in session and redirect to the quiz review page
+                Session["SelectedQuizId"] = e.CommandArgument.ToString();
+                Response.Redirect("ReviewQuiz.aspx");
+            }
+        }
+
+
+
 
         protected void btnUnenroll_Click(object sender, EventArgs e)
         {
@@ -171,5 +213,18 @@ namespace vclass_clone.web_form.student
             }
         }
 
+        protected void AssignmentsRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "ViewAssignment")
+            {
+                var assignmentid = e.CommandArgument.ToString();
+
+                Session["AssignmentID"] = assignmentid;
+                Response.Redirect(Page.GetRouteUrl("stuCourseAssignmentDetail", null));
+            }
+        }
+
+       
+       
     }
 }

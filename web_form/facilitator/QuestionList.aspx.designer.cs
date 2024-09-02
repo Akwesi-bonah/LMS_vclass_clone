@@ -11,7 +11,7 @@ namespace vclass_clone.web_form.facilitator
 {
 
 
-    public partial class assignment
+    public partial class QuestionList
     {
 
         /// <summary>
@@ -24,66 +24,39 @@ namespace vclass_clone.web_form.facilitator
         protected global::System.Web.UI.WebControls.Label lblCode;
 
         /// <summary>
-        /// fu1 control.
+        /// lblSubj control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fu1;
+        protected global::System.Web.UI.WebControls.Label lblSubj;
 
         /// <summary>
-        /// txtFilename control.
+        /// btnAddQuestion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFilename;
+        protected global::System.Web.UI.WebControls.Button btnAddQuestion;
 
         /// <summary>
-        /// txtDeadline control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDeadline;
+        protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
-        /// txtDescription control.
+        /// QuestionRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescription;
-
-        /// <summary>
-        /// btnAdd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
-
-        /// <summary>
-        /// panel_index_warning control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panel_index_warning;
-
-        /// <summary>
-        /// lbl_indexwarning control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_indexwarning;
+        protected global::System.Web.UI.WebControls.Repeater QuestionRepeater;
     }
 }
