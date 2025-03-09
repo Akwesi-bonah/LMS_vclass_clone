@@ -22,13 +22,11 @@ namespace vclass_clone.web_form.admin
             string phone = txtPhone.Text.Trim();
             string email = txtEmail.Text.Trim();
             string address = txtAddress.Text.Trim();
-            string password = txtPwd.Text.Trim();
-            string confirmPassword = txtCpwd.Text.Trim();
+            
 
             // Validate form data
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
-                string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) ||
-                password != confirmPassword || string.IsNullOrEmpty(address))
+                string.IsNullOrEmpty(email)  || string.IsNullOrEmpty(address))
             {
                 lblError.Text = "Please fill all required fields and ensure passwords match.";
                 lblError.Visible = true;
@@ -49,12 +47,12 @@ namespace vclass_clone.web_form.admin
                 return;
             }
 
-            if (!validator.IsStrongPassword(password))
-            {
-                lblError.Text = "Password must be at least 8 characters long and contain a mix of letters and numbers.";
-                lblError.Visible = true;
-                return;
-            }
+            //if (!validator.IsStrongPassword(email))
+            //{
+            //    lblError.Text = "Password must be at least 8 characters long and contain a mix of letters and numbers.";
+            //    lblError.Visible = true;
+            //    return;
+            //}
 
             try
             {
@@ -72,7 +70,7 @@ namespace vclass_clone.web_form.admin
                     }
 
                     // Hash the password
-                    string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+                    string hashedPassword = BCrypt.Net.BCrypt.HashPassword(email);
 
                     // Create a new User object
                     var newUser = new UserDB
@@ -126,9 +124,6 @@ namespace vclass_clone.web_form.admin
             txtPhone.Text = string.Empty;
             txtEmail.Text = string.Empty;
             txtAddress.Text = string.Empty;
-            txtPwd.Text = string.Empty;
-            txtCpwd.Text = string.Empty;
-
             lblError.Visible = false;
         }
     }

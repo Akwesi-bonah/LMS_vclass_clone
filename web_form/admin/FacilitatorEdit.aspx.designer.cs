@@ -11,7 +11,7 @@ namespace vclass_clone.web_form.admin
 {
 
 
-    public partial class FacilitatorAdd
+    public partial class FacilitatorEdit
     {
 
         /// <summary>
@@ -31,6 +31,15 @@ namespace vclass_clone.web_form.admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
+
+        /// <summary>
+        /// hfacId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfacId;
 
         /// <summary>
         /// txtFirstName control.
@@ -96,13 +105,31 @@ namespace vclass_clone.web_form.admin
         protected global::System.Web.UI.WebControls.TextBox txtAddress;
 
         /// <summary>
-        /// btnAddFac control.
+        /// txtPwd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddFac;
+        protected global::System.Web.UI.WebControls.TextBox txtPwd;
+
+        /// <summary>
+        /// txtCpwd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCpwd;
+
+        /// <summary>
+        /// btnEditFac control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditFac;
 
         /// <summary>
         /// btnClear control.

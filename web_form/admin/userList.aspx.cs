@@ -22,14 +22,20 @@ namespace vclass_clone.web_form.admin
         {
             if (e.CommandName == "Edit")
             {
-                Guid id = new Guid(e.CommandArgument.ToString());
-                Console.Write(id);
-                Response.Redirect(Page.GetRouteUrl("AdminEdit", new { id = id }));
+                string AdminidStr = e.CommandArgument.ToString();
+                
+                if(!string.IsNullOrEmpty(AdminidStr))
+                {
+                    Session["AdminId"] = AdminidStr;
+                    Response.Redirect(Page.GetRouteUrl("AdminEdit", null));
+                }
+               
             }
             else if (e.CommandName == "Delete")
             {
                 Guid id = new Guid(e.CommandArgument.ToString());
                 DeleteAdmin(id);
+
             }
         }
 
@@ -39,29 +45,61 @@ namespace vclass_clone.web_form.admin
             {
                 using (var context = new LMSContext())
                 {
-                    var admin = context.Admins.SingleOrDefault(a => a.Id == id);
+                    var admin = context.Admins.Include("User").SingleOrDefault(a => a.Id == id);
                     if (admin != null)
                     {
+                        // If you also want to delete the related User entity, do this:
+                        var user = admin.User;
+                        if (user != null)
+                        {
+                            context.Users.Remove(user);
+                        }
+
                         context.Admins.Remove(admin);
                         context.SaveChanges();
-                        BindGridView();
+
+                        BindGridView(); 
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.Write(ex.Message);
+                Console.WriteLine($"An error occurred: {ex.Message}");
             }
         }
 
+
         private void BindGridView()
         {
-            adminList.DataBind();
+            try
+            {
+                using (var context = new LMSContext())
+                {
+                    // Fetch the data from the database including related user data
+                    var admins = context.Admins.Include("User").ToList();
+
+                    // Bind the data to the GridView
+                    adminList.DataSource = admins;
+                    adminList.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any errors that occur during data retrieval
+                lblError.Text = $"An error occurred: {ex.Message}";
+                lblError.Visible = true;
+            }
         }
+
 
         protected void addBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect(Page.GetRouteUrl("AdminAdd", null));
+
+        }
+
+        protected void adminList_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
 
         }
     }

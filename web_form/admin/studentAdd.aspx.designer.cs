@@ -15,6 +15,15 @@ namespace vclass_clone.web_form.admin
     {
 
         /// <summary>
+        /// goBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button goBack;
+
+        /// <summary>
         /// lblError control.
         /// </summary>
         /// <remarks>
@@ -94,24 +103,6 @@ namespace vclass_clone.web_form.admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dbgroup;
-
-        /// <summary>
-        /// txtPwd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPwd;
-
-        /// <summary>
-        /// txtCpwd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCpwd;
 
         /// <summary>
         /// btnAddStu control.

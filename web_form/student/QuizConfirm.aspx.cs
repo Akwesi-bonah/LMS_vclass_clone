@@ -58,7 +58,7 @@ namespace vclass_clone.web_form.student
 
         protected void StartQuiz_Click(object sender, EventArgs e)
         {
-            Response.Redirect(Page.GetRouteUrl("stuCourseQuizConfirm", null));
+            Response.Redirect(Page.GetRouteUrl("stuCourseQuizAttempt", null));
         }
 
     }

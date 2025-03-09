@@ -15,6 +15,15 @@ namespace vclass_clone.web_form.admin
     {
 
         /// <summary>
+        /// lblheader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblheader;
+
+        /// <summary>
         /// lblError control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,24 @@ namespace vclass_clone.web_form.admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
+
+        /// <summary>
+        /// lblSuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSuccess;
+
+        /// <summary>
+        /// hCuId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hCuId;
 
         /// <summary>
         /// DropDownListCourses control.
@@ -60,6 +87,24 @@ namespace vclass_clone.web_form.admin
         protected global::System.Web.UI.WebControls.SqlDataSource sqlFacilitator;
 
         /// <summary>
+        /// DropDownStudentGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownStudentGroup;
+
+        /// <summary>
+        /// SqlGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlGroup;
+
+        /// <summary>
         /// txtStartDate control.
         /// </summary>
         /// <remarks>
@@ -87,6 +132,24 @@ namespace vclass_clone.web_form.admin
         protected global::System.Web.UI.WebControls.Button btnAddAssignment;
 
         /// <summary>
+        /// btnUpdateAssigmen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateAssigmen;
+
+        /// <summary>
+        /// btnClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear;
+
+        /// <summary>
         /// assignmentList control.
         /// </summary>
         /// <remarks>
@@ -94,14 +157,5 @@ namespace vclass_clone.web_form.admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView assignmentList;
-
-        /// <summary>
-        /// SqlAssignment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlAssignment;
     }
 }

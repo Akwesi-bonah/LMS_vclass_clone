@@ -23,7 +23,7 @@ namespace vclass_clone.Models
 
         public int Score { get; set; } = 0;
 
-        public bool IsCompleted { get; set; } = false; // Indicates if the student has completed the quiz
+        public bool IsCompleted { get; set; } = false;
 
         public QuizSubmissionDB()
         {

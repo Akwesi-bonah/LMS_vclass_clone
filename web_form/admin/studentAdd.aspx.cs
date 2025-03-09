@@ -33,14 +33,14 @@ namespace vclass_clone.web_form.admin
             string gender = dbgender.SelectedValue;
             string level = dpLevel.SelectedValue;
             string group = dbgroup.SelectedValue;
-            string password = txtPwd.Text.Trim();
-            string confirmPassword = txtCpwd.Text.Trim();
+            //string password = txtPwd.Text.Trim();
+            //string confirmPassword = txtCpwd.Text.Trim();
 
 
             // Validate form data
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
-                string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) ||
-                password != confirmPassword || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(group))
+                string.IsNullOrEmpty(email) || 
+                string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(group))
             {
                 lblError.Text = "Please fill all required fields and ensure passwords match.";
                 lblError.Visible = true;
@@ -61,12 +61,12 @@ namespace vclass_clone.web_form.admin
                 return;
             }
 
-            if (!validator.IsStrongPassword(password))
-            {
-                lblError.Text = "Password must be at least 8 characters long and contain a mix of letters and numbers.";
-                lblError.Visible = true;
-                return;
-            }
+            //if (!validator.IsStrongPassword(password))
+            //{
+            //    lblError.Text = "Password must be at least 8 characters long and contain a mix of letters and numbers.";
+            //    lblError.Visible = true;
+            //    return;
+            //}
 
             try
             {
@@ -83,7 +83,7 @@ namespace vclass_clone.web_form.admin
                     }
 
                     // Hash the password
-                    string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+                    string hashedPassword = BCrypt.Net.BCrypt.HashPassword(email);
 
                     // Retrieve the department object
                     var groundId = context.Groups.SingleOrDefault(dep => dep.Id == new Guid(group));
@@ -137,6 +137,14 @@ namespace vclass_clone.web_form.admin
         protected void btnClear_Click(object sender, EventArgs e)
         {
 
+            txtEmail.Text = string.Empty;
+            txtFirstName.Text = string.Empty;
+            txtLastName.Text = string.Empty;
+            txtStNumber.Text = string.Empty;
+            dbgender.SelectedIndex = -1;
+            dpLevel.SelectedIndex = -1;
+            dbgender.SelectedIndex = -1;
+            txtEmail.Text = string.Empty;
         }
     }
 }

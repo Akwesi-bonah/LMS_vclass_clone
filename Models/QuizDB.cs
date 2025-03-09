@@ -35,13 +35,11 @@ namespace vclass_clone.Models
         public int TotalMarks { get; set; }
         public virtual ICollection<QuestionDB> Questions { get; set; }
         public virtual ICollection<QuizSubmissionDB> QuizSubmissions { get; set; } 
-        public virtual ICollection<StudentQuizProgress> StudentQuizProgresses { get; set; } 
         public QuizDB()
         {
             Id = Guid.NewGuid();
             Questions = new List<QuestionDB>();
             QuizSubmissions = new List<QuizSubmissionDB>();
-            StudentQuizProgresses = new List<StudentQuizProgress>();
         }
     }
 

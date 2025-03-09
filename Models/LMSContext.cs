@@ -29,7 +29,7 @@ namespace vclass_clone.Models
 
         public DbSet<QuizSubmissionDB> QuizSubmissions { get; set; }
 
-        public DbSet<StudentQuizProgress> StudentQuizProgresses { get; set; }
+
 
 
 
@@ -104,9 +104,9 @@ namespace vclass_clone.Models
                 .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<DiscussionTopicDB>()
-           .HasMany(t => t.Posts)
-           .WithRequired(p => p.DiscussionTopic)
-           .HasForeignKey(p => p.DiscussionTopicId);
+               .HasMany(t => t.Posts)
+               .WithRequired(p => p.DiscussionTopic)
+               .HasForeignKey(p => p.DiscussionTopicId);
 
             modelBuilder.Entity<DiscussionPostDB>()
                 .HasRequired(p => p.Student)
@@ -134,7 +134,16 @@ namespace vclass_clone.Models
                 .HasForeignKey(qs => qs.QuizId) 
                 .WillCascadeOnDelete(false);
 
-            
+
+
+
+
+            //modelBuilder.Entity<StudentQuizAnswer>()
+            //.HasRequired(s => s.QuizProgress)
+            //.WithMany(p => p.Answers)
+            //.HasForeignKey(s => s.QuizProgressId);
+
+
 
 
             base.OnModelCreating(modelBuilder);

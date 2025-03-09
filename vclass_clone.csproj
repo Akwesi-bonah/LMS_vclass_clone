@@ -1225,9 +1225,11 @@
     <Content Include="web_form\admin\CourseAssigment.aspx" />
     <Content Include="web_form\admin\department.aspx" />
     <Content Include="web_form\admin\FacilitatorAdd.aspx" />
+    <Content Include="web_form\admin\FacilitatorEdit.aspx" />
     <Content Include="web_form\admin\facilitatorList.aspx" />
     <Content Include="web_form\admin\group.aspx" />
     <Content Include="web_form\admin\studentAdd.aspx" />
+    <Content Include="web_form\admin\studentEdit.aspx" />
     <Content Include="web_form\admin\studentList.aspx" />
     <Content Include="web_form\admin\userEdit.aspx" />
     <Content Include="web_form\admin\userAdd.aspx" />
@@ -1307,6 +1309,22 @@
     <Compile Include="Migrations\202408311838267_submit_quiz.Designer.cs">
       <DependentUpon>202408311838267_submit_quiz.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202409022308062_fix.cs" />
+    <Compile Include="Migrations\202409022308062_fix.Designer.cs">
+      <DependentUpon>202409022308062_fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202409032325362_con.cs" />
+    <Compile Include="Migrations\202409032325362_con.Designer.cs">
+      <DependentUpon>202409032325362_con.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202409071009079_update_course_assignment.cs" />
+    <Compile Include="Migrations\202409071009079_update_course_assignment.Designer.cs">
+      <DependentUpon>202409071009079_update_course_assignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202409071741186_login_update.cs" />
+    <Compile Include="Migrations\202409071741186_login_update.Designer.cs">
+      <DependentUpon>202409071741186_login_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AdminDB.cs" />
     <Compile Include="Models\AssignmentDB.cs" />
@@ -1325,7 +1343,7 @@
     <Compile Include="Models\QuestionsDB.cs" />
     <Compile Include="Models\QuizDB.cs" />
     <Compile Include="Models\QuizSubmissionDB.cs" />
-    <Compile Include="Models\StudentQuizProgress.cs" />
+    <Compile Include="Models\TrackQuiz.cs" />
     <Compile Include="Models\UserDB.cs" />
     <Compile Include="Models\StudentDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1364,6 +1382,13 @@
     <Compile Include="web_form\admin\FacilitatorAdd.aspx.designer.cs">
       <DependentUpon>FacilitatorAdd.aspx</DependentUpon>
     </Compile>
+    <Compile Include="web_form\admin\FacilitatorEdit.aspx.cs">
+      <DependentUpon>FacilitatorEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web_form\admin\FacilitatorEdit.aspx.designer.cs">
+      <DependentUpon>FacilitatorEdit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="web_form\admin\facilitatorList.aspx.cs">
       <DependentUpon>facilitatorList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1384,6 +1409,13 @@
     </Compile>
     <Compile Include="web_form\admin\studentAdd.aspx.designer.cs">
       <DependentUpon>studentAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web_form\admin\studentEdit.aspx.cs">
+      <DependentUpon>studentEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web_form\admin\studentEdit.aspx.designer.cs">
+      <DependentUpon>studentEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="web_form\admin\studentList.aspx.cs">
       <DependentUpon>studentList.aspx</DependentUpon>
@@ -1412,6 +1444,13 @@
     </Compile>
     <Compile Include="web_form\admin\userList.aspx.designer.cs">
       <DependentUpon>userList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web_form\auth\changePass.aspx.cs">
+      <DependentUpon>changePass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web_form\auth\changePass.aspx.designer.cs">
+      <DependentUpon>changePass.aspx</DependentUpon>
     </Compile>
     <Compile Include="web_form\auth\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -1718,6 +1757,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="web_form\auth\changePass.aspx" />
     <Content Include="web_form\auth\login.aspx" />
     <Content Include="web_form\facilitator\addAssigment.aspx" />
     <Content Include="web_form\facilitator\addMaterial.aspx" />
@@ -1811,6 +1851,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202408311838267_submit_quiz.resx">
       <DependentUpon>202408311838267_submit_quiz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409022308062_fix.resx">
+      <DependentUpon>202409022308062_fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409032325362_con.resx">
+      <DependentUpon>202409032325362_con.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409071009079_update_course_assignment.resx">
+      <DependentUpon>202409071009079_update_course_assignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409071741186_login_update.resx">
+      <DependentUpon>202409071741186_login_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

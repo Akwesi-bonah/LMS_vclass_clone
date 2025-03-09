@@ -16,28 +16,20 @@ namespace vclass_clone
 
             routes.MapPageRoute("Login", "defualt/login", "~/web_form/auth/login.aspx");
             routes.MapPageRoute("AdminDashboard", "admin/dashboard", "~/web_form/admin/AdminIndex.aspx");
-
             routes.MapPageRoute("AdminList", "admin/list", "~/web_form/admin/userList.aspx");
-
             routes.MapPageRoute("AdminAdd", "admin/add", "~/web_form/admin/userAdd.aspx");
-            routes.MapPageRoute("AdminEdit", "admin/edit/{id}", "~/web_form/admin/userEdit.aspx");
-
-
+            routes.MapPageRoute("AdminEdit", "admin/edit", "~/web_form/admin/userEdit.aspx");
             routes.MapPageRoute("FacilitatorList", "facilitator/list", "~/web_form/admin/facilitatorList.aspx");
             routes.MapPageRoute("FacilitatorAdd", "facilitator/Add", "~/web_form/admin/FacilitatorAdd.aspx");
-            routes.MapPageRoute("FacilitatorEdit", "facilitator/Edit", "~/web_form/admin/FacilitatorList.aspx");
-
+            routes.MapPageRoute("FacilitatorEdit", "facilitator/Edit", "~/web_form/admin/FacilitatorEdit.aspx");
             routes.MapPageRoute("StudentList", "student/list", "~/web_form/admin/studentList.aspx");
             routes.MapPageRoute("StudentAdd", "student/Add", "~/web_form/admin/studentAdd.aspx");
-            routes.MapPageRoute("StudentEdit", "student/Edit", "~/web_form/admin/studentList.aspx");
-
+            routes.MapPageRoute("StudentEdit", "student/Edit", "~/web_form/admin/studentEdit.aspx");
             routes.MapPageRoute("CourseList", "course/list", "~/web_form/admin/AdminCourse.aspx");
             routes.MapPageRoute("CourseAdd", "course/Add", "~/web_form/admin/CourseAdd.aspx");
             routes.MapPageRoute("CourseAssignList", "course/assign/list", "~/web_form/admin/CourseAssigment.aspx");
             routes.MapPageRoute("Departement", "department/list", "~/web_form/admin/department.aspx");
             routes.MapPageRoute("Groups", "Group/list", "~/web_form/admin/group.aspx");
-
-
 
 
             // facilitator view
@@ -63,6 +55,7 @@ namespace vclass_clone
             routes.MapPageRoute("FacQuestionAdd", "Facilitator/question-add", "~/web_form/facilitator/addQuestion.aspx");
             //routes.
 
+
             // Students view
             routes.MapPageRoute("StuDashboard", "default/dashboard", "~/web_form/student/Home.aspx");
             routes.MapPageRoute("StuCourse", "default/my_courses", "~/web_form/student/stuCourse.aspx");
@@ -71,7 +64,7 @@ namespace vclass_clone
             routes.MapPageRoute("stuCourseContext", "default/course_content", "~/web_form/student/courseContent.aspx");
             routes.MapPageRoute("stuCourseAssignment", "default/course_assignment/{id}", "~/web_form/student/courseAssigDetail.aspx");
             routes.MapPageRoute("stuCourseAssignmentDetail","default/course-assignment-details/" ,"~/web_form/student/courseAssigDetail.aspx");
-            routes.MapPageRoute("stuCourseQuizAttempt", "default/course-quiz-attempt/", "~/web_form/student/QuizConfirm.aspx");
+            routes.MapPageRoute("stuCourseQuizAttempt", "default/course-quiz-attempt/", "~/web_form/student/StartQuiz.aspx");
             routes.MapPageRoute("stuCourseQuizConfirm", "default/course-quiz-confirm/", "~/web_form/student/QuizConfirm.aspx");
 
         }

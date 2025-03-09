@@ -11,7 +11,7 @@ namespace vclass_clone.web_form.admin
 {
 
 
-    public partial class FacilitatorAdd
+    public partial class studentEdit
     {
 
         /// <summary>
@@ -22,6 +22,15 @@ namespace vclass_clone.web_form.admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button goBack;
+
+        /// <summary>
+        /// hstuId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hstuId;
 
         /// <summary>
         /// lblError control.
@@ -51,13 +60,13 @@ namespace vclass_clone.web_form.admin
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
 
         /// <summary>
-        /// txtPhone control.
+        /// txtStNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhone;
+        protected global::System.Web.UI.WebControls.TextBox txtStNumber;
 
         /// <summary>
         /// txtEmail control.
@@ -69,40 +78,67 @@ namespace vclass_clone.web_form.admin
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
-        /// departmentList control.
+        /// dbgender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList departmentList;
+        protected global::System.Web.UI.WebControls.DropDownList dbgender;
 
         /// <summary>
-        /// aqldepartment control.
+        /// Sqlgroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource aqldepartment;
+        protected global::System.Web.UI.WebControls.SqlDataSource Sqlgroup;
 
         /// <summary>
-        /// txtAddress control.
+        /// dpLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddress;
+        protected global::System.Web.UI.WebControls.DropDownList dpLevel;
 
         /// <summary>
-        /// btnAddFac control.
+        /// dbgroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddFac;
+        protected global::System.Web.UI.WebControls.DropDownList dbgroup;
+
+        /// <summary>
+        /// txtPwd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPwd;
+
+        /// <summary>
+        /// txtCpwd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCpwd;
+
+        /// <summary>
+        /// btnUptStu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUptStu;
 
         /// <summary>
         /// btnClear control.

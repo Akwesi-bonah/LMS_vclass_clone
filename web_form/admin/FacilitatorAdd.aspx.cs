@@ -25,6 +25,12 @@ namespace vclass_clone.web_form.admin
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
+            txtFirstName.Text = string.Empty;
+            txtLastName.Text = string.Empty;
+            txtPhone.Text = string.Empty;
+            txtAddress.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            departmentList.SelectedIndex = -1;
 
         }
 
@@ -37,14 +43,13 @@ namespace vclass_clone.web_form.admin
             string phone = txtPhone.Text.Trim();
             string email = txtEmail.Text.Trim();
             string address = txtAddress.Text.Trim();
-            string password = txtPwd.Text.Trim();
-            string confirmPassword = txtCpwd.Text.Trim();
+            //string password = txtPwd.Text.Trim();
+            //string confirmPassword = txtCpwd.Text.Trim();
             string departmentId = departmentList.SelectedValue;
 
             // Validate form data
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
-                string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) ||
-                password != confirmPassword || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(departmentId))
+                string.IsNullOrEmpty(email) ||  string.IsNullOrEmpty(address) || string.IsNullOrEmpty(departmentId))
             {
                 lblError.Text = "Please fill all required fields and ensure passwords match.";
                 lblError.Visible = true;
@@ -65,12 +70,13 @@ namespace vclass_clone.web_form.admin
                 return;
             }
 
-            if (!validator.IsStrongPassword(password))
-            {
-                lblError.Text = "Password must be at least 8 characters long and contain a mix of letters and numbers.";
-                lblError.Visible = true;
-                return;
-            }
+            //if (!validator.IsStrongPassword(email))
+            //{
+            //    lblError.Text = "Password must be at least 8 characters long and contain a mix of letters and numbers.";
+            //    lblError.Visible = true;
+            //    return;
+            //}
+
 
             try
             {
@@ -88,7 +94,7 @@ namespace vclass_clone.web_form.admin
                     }
 
                     // Hash the password
-                    string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+                    string hashedPassword = BCrypt.Net.BCrypt.HashPassword(email);
 
                     // Retrieve the department object
                     var department = context.Departments.SingleOrDefault(dep => dep.Id == new Guid(departmentId));
@@ -133,7 +139,7 @@ namespace vclass_clone.web_form.admin
             {
                 lblError.Text = $"An error occurred while saving the facilitator. Please try again. {ex.Message}";
                 lblError.Visible = true;
-                // Consider logging the exception details here
+                
             }
         }
 

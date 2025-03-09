@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using vclass_clone.web_form.facilitator;
 
 namespace vclass_clone.Models
 {
@@ -27,6 +28,7 @@ namespace vclass_clone.Models
         [Required(ErrorMessage = "Course level is required.")]
         [StringLength(4, ErrorMessage = "Level cannot be longer than 4 characters.")]
         public string Level { get; set; }
+
 
 
         [StringLength(20, ErrorMessage = "Enrollment key cannot be more than 20 character.")]

@@ -33,8 +33,11 @@ namespace vclass_clone.Models
             [Required]
             public string Answer { get; set; }
 
+            //public virtual ICollection<StudentQuizAnswer> StudentQuizAnswers { get; set; }
 
-            public QuestionDB()
+
+
+        public QuestionDB()
             {
                 Id = Guid.NewGuid();
             }

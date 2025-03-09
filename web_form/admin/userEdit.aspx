@@ -5,7 +5,7 @@
         <div class="content-wrapper">
         <div class="row">
             <div>
-                <asp:Button runat="server" Text="Go Back" ID="goBack" CssClass="btn btn-success font-weight-bold" OnClick="goBack_Click"  />
+                <asp:Button runat="server" Text="Go Back" ID="goBack" CssClass="btn btn-success font-weight-bold" OnClick="goBack_Click" Height="57px"  />
             </div>
             <br />
                  <div class="container vertical-center">
@@ -60,7 +60,7 @@
                                 <div class="col-md-6">
                                     <asp:Button  ID="btnAddAdmin" runat="server" Text="Save" CssClass="btn btn-primary"   OnClick="btnUpdateAdmin_Click"  />
                                 </div>
-                                <div class="col-md-8 text-right">
+                                <div class="col-md-6 text-right">
                                     <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-secondary" OnClick="btnClear_Click"  />
                                 </div>
                             </div>

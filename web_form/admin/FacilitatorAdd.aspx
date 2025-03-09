@@ -6,7 +6,7 @@
     <div class="content-wrapper">
         <div class="row">
             <div>
-                <asp:Button runat="server" Text="Go Back" ID="goBack" CssClass="btn btn-success font-weight-bold" OnClick="goBack_Click" />
+                <asp:Button runat="server" Text="Go Back" ID="goBack" CssClass="btn btn-success font-weight-bold" OnClick="goBack_Click" Height="56px" Width="108px" />
             </div>
             <br />
             <div class="container vertical-center">
@@ -52,7 +52,7 @@
                                     </div>
 
                                 </div>
-                                <div class="row">
+                                <%--<div class="row">
                                     <div class="col-md-6 form-group">
                                         <label for="txtPwd">Password</label>
                                         <asp:TextBox ID="txtPwd" runat="server" CssClass="form-control" TextMode="Password" />
@@ -61,7 +61,7 @@
                                         <label for="txtCpwd">Confirm Password</label>
                                         <asp:TextBox ID="txtCpwd" runat="server" CssClass="form-control" TextMode="Password" />
                                     </div>
-                                </div>
+                                </div>--%>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <asp:Button ID="btnAddFac" runat="server" Text="Save" CssClass="btn btn-primary" OnClick="btnAddFac_Click" />
@@ -77,6 +77,7 @@
             </div>
         </div>
     </div>
+
 </asp:Content>
 
    

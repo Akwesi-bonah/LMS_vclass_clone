@@ -24,6 +24,8 @@ namespace vclass_clone
         [StringLength(10, ErrorMessage = "Status cannot be longer than 10 characters.")]
         public string Status { get; set; }
 
+        public DateTime? lastLogin { get; set; }
+
         public UserDB()
         {
             Id = Guid.NewGuid();

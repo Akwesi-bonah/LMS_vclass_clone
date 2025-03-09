@@ -24,21 +24,21 @@ namespace vclass_clone.web_form.admin
         protected global::System.Web.UI.WebControls.Button addBtn;
 
         /// <summary>
-        /// adminList control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView adminList;
+        protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
-        /// SqlFacilitator control.
+        /// FacList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlFacilitator;
+        protected global::System.Web.UI.WebControls.GridView FacList;
     }
 }
